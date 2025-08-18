@@ -51,9 +51,9 @@ def with_layout(content_func):
         # 显示广告内容
         with ui.element().classes('fixed bottom-5 left-5 w-[260px]'):
             with ui.link(target='https://space.bilibili.com/1997403556', new_tab=True):
-                ui.image('assets/logo.png').classes('w-full h-[100px]').style('margin-bottom:5px')
-            with ui.link(target='https://space.bilibili.com/1997403556', new_tab=True):
-                ui.image('assets/logo.png').classes('w-full h-[100px]')
+                ui.image('assets/follow.png').classes('w-full h-[100px]').style('margin-bottom:5px')
+            with ui.link(target='https://comfyit.cn', new_tab=True):
+                ui.image('assets/master.png').classes('w-full h-[100px]')
     # 右侧抽屉栏
     # with ui.right_drawer(fixed=False).classes('bg-blue-100').props('bordered') as right_drawer:
     #     ui.label('📌 右侧抽屉内容')
