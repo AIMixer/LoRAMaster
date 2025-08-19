@@ -17,6 +17,18 @@ LoRAMaster 是一个开源的 **LoRA 训练工具**，支持最新的前沿模�
 
 ---
 
+## ✅ 支持情况
+
+| 模型 / 模式           | 状态       |
+|-------------------|------------|
+| Wan 2.1 (T2V、I2V) | ✅ 支持     |
+| Wan 2.2 (T2V、I2V) | ✅ 支持     |
+| HunyuanVideo      | 🔧 开发中     |
+| FramePack         | 🔧 开发中   |
+| Kontext           | 🔧 开发中     |
+| Qwen-Image        | 🔧 开发中     |
+
+
 ## 💻 安装与运行
 
 1. 克隆仓库：
@@ -24,6 +36,7 @@ LoRAMaster 是一个开源的 **LoRA 训练工具**，支持最新的前沿模�
 ```bash
 git clone https://github.com/AIMixer/LoRAMaster.git
 cd LoRAMaster
+git clone https://github.com/kohya-ss/musubi-tuner.git
 ```
 
 2. 创建虚拟环境并安装依赖：
@@ -33,10 +46,11 @@ python -m venv .venv
 source .venv/bin/activate
 # Windows
 .venv\Scripts\activate
-pip install -r requirements.txt
+pip install torch torchvision --index-url https://download.pytorch.org/whl/cu128
 cd musubi-tuner
 pip install -e .
 cd ..
+pip install -r requirements.txt
 ```
 
 3. 启动 LoRAMaster：
