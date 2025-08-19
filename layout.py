@@ -32,8 +32,10 @@ def with_layout(content_func):
             ui.label('LoRAMaster / LoRA训练大师 by AI搅拌手').classes('text-xl font-bold ml-2')
         with ui.row().classes('items-center'):
             ui.label('QQ交流群：551482703')
-            ui.html("""<a href="https://space.bilibili.com/1997403556" target="_blank">联系作者：AI搅拌手</a>
-                    """)
+            ui.html("""
+                <a href="https://space.bilibili.com/1997403556" target="_blank">联系作者：AI搅拌手</a>
+                <a href="https://github.com/AIMixer/LoRAMaster" target="_blank">Github</a>
+            """)
         # ui.button(icon='menu', on_click=lambda: right_drawer.toggle()).props('flat color=white')
 
 
