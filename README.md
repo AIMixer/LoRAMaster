@@ -56,7 +56,14 @@ pip install -r requirements.txt
 3. 启动 LoRAMaster：
 ```bash
 python main.py
+```
 
+## 单独启动方式
+1. 进入LoRAMaster根目录
+2. 打开CMD，依次运行以下命令
+```bash
+.venv\Scripts\activate
+python main.py
 ```
 
 ## 📥 模型下载
@@ -68,3 +75,6 @@ python main.py
 | Wan2.1 vae               | Wan VAE文件路径     | [下载](https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/tree/main/split_files/vae) |
 | Wan2.1 T5                | T5模型路径          | [下载](https://huggingface.co/Wan-AI/Wan2.1-T2V-14B/blob/main/models_t5_umt5-xxl-enc-bf16.pth) |
 
+## 一键整合包
+
+👉 [点击这里，下载一键整合包](https://comfyit.cn/article/401)
