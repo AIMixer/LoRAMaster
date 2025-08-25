@@ -74,10 +74,10 @@ python main.py
 | 模型名                      | 用途              | 下载链接 |
 |--------------------------|-----------------|----------|
 | Wan2.1 diffusion_models  | DiT权重文件路径（按需下載） | [下载](https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/tree/main/split_files/diffusion_models) |
-| Wan2.2 diffusion_models             | DiT权重文件路径（按需下載）        | [下载](https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/tree/main/split_files/diffusion_models) |
+| Wan2.2 diffusion_models             | DiT权重文件路径（按需下載） | [下载](https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/tree/main/split_files/diffusion_models) |
 | Wan2.1 vae               | Wan VAE文件路径     | [下载](https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/tree/main/split_files/vae) |
 | Wan2.1 T5                | T5模型路径          | [下载](https://huggingface.co/Wan-AI/Wan2.1-T2V-14B/blob/main/models_t5_umt5-xxl-enc-bf16.pth) |
-| CLIP Model                | T5模型路径          | [下载](https://www.modelscope.cn/models/muse/open-clip-xlm-roberta-large-vit-huge-14/files) |
+| CLIP Model                | Clip模型          | [下载](https://www.modelscope.cn/models/muse/open-clip-xlm-roberta-large-vit-huge-14/files) |
 
 ## 一键整合包
 
