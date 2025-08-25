@@ -858,7 +858,7 @@ def draw_ui():
                 with ui.item().bind_visibility_from(timestep_custom,'value'):
                     with ui.item_section():
                         ui.item_label('Min Timestep / 最小时间步')
-                        ui.item_label('低噪/高噪模型开始训练的时间步，i2v低噪建议0，i2v高噪建议900，t2v低噪建议0，i2v高噪建议875').props('caption')
+                        ui.item_label('低噪/高噪模型开始训练的时间步，i2v低噪建议0，i2v高噪建议900，t2v低噪建议0，t2v高噪建议875').props('caption')
                     with ui.item_section().props('side').classes('w-1/2'):
                         min_timestep = ui.number(value=wan_training_settings['min_timestep']).props(
                             'rounded outlined dense').classes('w-1/2')
