@@ -513,7 +513,7 @@ def draw_ui():
                         bind_setting(dit_weights_path, 'dit_weights_path')
                 with ui.item():
                     with ui.item_section():
-                        ui.item_label('Input toml path / 或输入toml文件路径')
+                        ui.item_label('Input toml path / 输入toml文件路径')
                         ui.item_label('toml配置文件的绝对路径，如如:E:\\wan_lora_train\\config.toml').props('caption')
                     with ui.item_section().props('side').classes('w-1/2'):
                         dataset_config = ui.input(placeholder='如:E:\\wan_lora_train\\config.toml',
@@ -876,7 +876,7 @@ def draw_ui():
                     with ui.item_section():
                         ui.item_label('Timestep Boundary / 时间步边界')
                         ui.item_label(
-                            '高低噪模型同时训练时设置，小于这个值，用于训练低噪模型，大于这个值，用于训练高噪模型。i2v建议900，t2v建议875').props(
+                            '仅高低噪模型同时训练时需要设置，小于这个值，用于训练低噪模型，大于这个值，用于训练高噪模型。i2v建议900，t2v建议875').props(
                             'caption')
                     with ui.item_section().props('side').classes('w-1/2'):
                         timestep_boundary = ui.number(value=wan_training_settings['timestep_boundary']).props(

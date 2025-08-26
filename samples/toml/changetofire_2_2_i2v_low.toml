@@ -1,0 +1,18 @@
+# resolution, caption_extension, batch_size, enable_bucket, bucket_no_upscale must be set in either general or datasets
+
+# general configurations
+[general]
+resolution = [416, 240]
+caption_extension = ".txt"
+batch_size = 1
+enable_bucket = true
+bucket_no_upscale = false
+
+[[datasets]]
+video_directory = "E:\\train\\changetofire"
+cache_directory = "E:\\train\\changetofire\\cache2_2_i2v_low" 
+target_frames = [1, 33, 65, 97]
+frame_extraction = "uniform"
+frame_sample = 4
+
+# other datasets can be added here. each dataset can have different configurations
