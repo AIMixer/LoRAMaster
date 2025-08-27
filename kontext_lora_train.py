@@ -271,17 +271,13 @@ def make_prompt_file(
 def run_wan_training():
     dataset_config = kontext_training_settings['dataset_config']
     vae_path = kontext_training_settings['vae_path']
-    skip_existing = kontext_training_settings['skip_existing']
-    use_clip = kontext_training_settings['use_clip']
     clip_model_path = kontext_training_settings['clip_model_path']
     t5_path = kontext_training_settings['t5_path']
-    task = kontext_training_settings['task']
     dit_weights_path = kontext_training_settings['dit_weights_path']
     learning_rate = kontext_training_settings['learning_rate']
     gradient_accumulation_steps = kontext_training_settings['gradient_accumulation_steps']
     network_dim = kontext_training_settings['network_dim']
     timestep_sampling = kontext_training_settings['timestep_sampling']
-    discrete_flow_shift = kontext_training_settings['discrete_flow_shift']
     max_train_epochs = kontext_training_settings['max_train_epochs']
     save_every_n_epochs = kontext_training_settings['save_every_n_epochs']
     save_every_n_steps = kontext_training_settings['save_every_n_steps']
@@ -306,11 +302,8 @@ def run_wan_training():
     sample_vae_path = kontext_training_settings['vae_path']
     sample_t5_path = kontext_training_settings['t5_path']
     fp8 = kontext_training_settings['fp8']
-    dit_high_noise_path = kontext_training_settings['dit_high_noise_path']
     num_cpu_threads_per_process = kontext_training_settings['num_cpu_threads_per_process']
     num_processes = kontext_training_settings['num_processes']
-    timestep_custom = kontext_training_settings['timestep_custom']
-    lazy_loading = kontext_training_settings['lazy_loading']
     attention_implementation = kontext_training_settings['attention_implementation']
     optimizer_type = kontext_training_settings['optimizer_type']
     max_data_loader_n_workers = kontext_training_settings['max_data_loader_n_workers']
@@ -322,18 +315,14 @@ def run_wan_training():
     mixed_precision = kontext_training_settings['mixed_precision']
     sample_at_first = kontext_training_settings['sample_at_first']
 
-
-    is_wan22 = task in ['t2v-A14B','i2v-A14B']
-
-    # python_executable = "./python_embeded/python.exe"
     python_executable = sys.executable
     # 获取当前脚本所在目录
     base_dir = os.path.dirname(os.path.abspath(__file__))
 
     # 拼接 musubi-tuner 目录下的脚本路径
     MUSUBI_DIR = os.path.join(base_dir, 'musubi-tuner','src','musubi_tuner')
-    wan_train_network_path = os.path.join(MUSUBI_DIR, "wan_train_network.py")
-    print(python_executable, wan_train_network_path)
+    kontext_train_network_path = os.path.join(MUSUBI_DIR, "flux_kontext_train_network.py")
+    print(python_executable, kontext_train_network_path)
 
     env = os.environ.copy()
     env["PYTHONPATH"] = os.pathsep.join([
@@ -350,9 +339,11 @@ def run_wan_training():
         "--mixed_precision", mixed_precision,
         "--num_processes", str(num_processes),     # 只使用一个进程
         "--gpu_ids", "0",           # 只使用第一张GPU
-        wan_train_network_path,
-        "--task", task,
+        kontext_train_network_path,
         "--dit", dit_weights_path,
+        "--vae",vae_path,
+        "--text_encoder1",t5_path,
+        "--text_encoder2",clip_model_path,
         "--dataset_config", dataset_config,
         "--mixed_precision", mixed_precision,
         "--optimizer_type", optimizer_type,
@@ -361,10 +352,9 @@ def run_wan_training():
         f"--gradient_accumulation_steps={gradient_accumulation_steps}",
         "--max_data_loader_n_workers", str(max_data_loader_n_workers),
         "--persistent_data_loader_workers",
-        "--network_module", "networks.lora_wan",
+        "--network_module", "networks.lora_flux",
         "--network_dim", str(network_dim),
         "--timestep_sampling", timestep_sampling,
-        "--discrete_flow_shift", str(discrete_flow_shift),
         "--max_train_epochs", str(max_train_epochs),
         "--save_every_n_epochs", str(save_every_n_epochs),
         "--save_every_n_steps", str(save_every_n_steps),
@@ -383,8 +373,6 @@ def run_wan_training():
         command.extend(["--blocks_to_swap", str(blocks_to_swap)])
     if use_network_weights and network_weights_path.strip():
         command.extend(["--network_weights", network_weights_path.strip()])
-    if use_clip and clip_model_path.strip():
-        command.extend(["--clip", clip_model_path.strip()])
     if fp8:
         command.extend(['--fp8_base'])
 
@@ -418,20 +406,6 @@ def run_wan_training():
     if log_tracker_name:
         command.extend(['--log_tracker_name', log_tracker_name])
 
-    if is_wan22:
-        if dit_high_noise_path:
-            command.extend(["--dit_high_noise", dit_high_noise_path])
-            command.extend(["--timestep_boundary", str(kontext_training_settings['timestep_boundary'])])
-        # 自定义时间步
-        if timestep_custom:
-            command.extend([
-                "--min_timestep", str(kontext_training_settings['min_timestep']),
-                "--max_timestep", str(kontext_training_settings['max_timestep']),
-                ])
-        # 懒加载
-        if lazy_loading:
-            command.extend(['--lazy_loading'])
-
 
     def run_and_stream_output():
         global train_process
@@ -455,7 +429,7 @@ def run_wan_training():
                 auto_shutdown.shutdown()
 
 
-    writeTrainLog("开始运行 Wan LoRA训练命令...\n\n")
+    writeTrainLog("开始运行 Kontext LoRA训练命令...\n\n")
     writeTrainLog(' '.join(command))
     ui.notify("开始训练，完成前请不要离开本页面！",type='warning')
     Thread(target=run_and_stream_output).start()
@@ -630,14 +604,6 @@ def draw_ui():
                     with ui.item_section().props('side').classes('w-1/2'):
                         timestep_sampling = ui.input(value=kontext_training_settings['timestep_sampling']).props('rounded outlined dense').classes('w-1/2')
                         bind_setting(timestep_sampling, 'timestep_sampling')
-
-                with ui.item():
-                    with ui.item_section():
-                        ui.item_label('Discrete Flow Shift / 离散流移位')
-                        ui.item_label('建议配置：wan2.1:3；wan2.2：T2V: 12 ;I2V：5。不一定完全一致，可以用作参考').props('caption')
-                    with ui.item_section().props('side').classes('w-1/2'):
-                        discrete_shift = ui.number(value=kontext_training_settings['discrete_flow_shift']).props('rounded outlined dense').classes('w-1/2')
-                        bind_setting(discrete_shift, 'discrete_flow_shift')
                 with ui.item():
                     with ui.item_section():
                         ui.item_label('max_data_loader_n_workers / 数据加载的最大工作线程数')
