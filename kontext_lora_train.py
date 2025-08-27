@@ -301,7 +301,6 @@ def run_wan_training():
     sample_every_n_steps = kontext_training_settings['sample_every_n_steps']
     sample_vae_path = kontext_training_settings['vae_path']
     sample_t5_path = kontext_training_settings['t5_path']
-    fp8 = kontext_training_settings['fp8']
     num_cpu_threads_per_process = kontext_training_settings['num_cpu_threads_per_process']
     num_processes = kontext_training_settings['num_processes']
     attention_implementation = kontext_training_settings['attention_implementation']
@@ -373,8 +372,6 @@ def run_wan_training():
         command.extend(["--blocks_to_swap", str(blocks_to_swap)])
     if use_network_weights and network_weights_path.strip():
         command.extend(["--network_weights", network_weights_path.strip()])
-    if fp8:
-        command.extend(['--fp8_base'])
 
     if generate_samples:
         prompt_file_final = make_prompt_file(
@@ -394,7 +391,6 @@ def run_wan_training():
             "--sample_every_n_steps", str(sample_every_n_steps),
             "--vae", sample_vae_path,
             "--t5", sample_t5_path,
-            # "--fp8_llm"
         ])
         if sample_at_first:
             command.extend(["--sample_at_first"])
@@ -502,15 +498,6 @@ def draw_ui():
                             value=kontext_training_settings["clip_model_path"]).props(
                             'rounded outlined dense').classes('w-full')
                         bind_setting(clip_model_path, 'clip_model_path')
-
-                with ui.item():
-                    with ui.item_section():
-                        ui.item_label('FP8')
-                        ui.item_label('开启FP8模式，节省显存。使用FP8底膜时，必须勾选此选项，且仅支持fp8_e4m3fn').props('caption')
-                    with ui.item_section().props('side'):
-
-                        fp8 = ui.switch(value=kontext_training_settings['fp8'])
-                        bind_setting(fp8, 'fp8')
 
             with ui.list().props('bordered separator').classes('w-full'):
                 ui.item_label('② 预缓存').props('header').classes('text-xl font-bold mb-2')

@@ -30,7 +30,6 @@ sample_steps = "10"
 sample_at_first = false
 custom_prompt_txt = false
 custom_prompt_path = ""
-fp8 = false
 num_cpu_threads_per_process = 1
 num_processes = 1
 lazy_loading = false
