@@ -1,0 +1,17 @@
+# resolution, caption_extension, batch_size, enable_bucket, bucket_no_upscale must be set in either general or datasets
+
+# general configurations
+[general]
+resolution = [768,1024]
+caption_extension = ".txt"
+batch_size = 1
+enable_bucket = true
+bucket_no_upscale = false
+num_repeats = 2
+
+[[datasets]]
+image_directory = "E:\\train\\aiblender\\images"
+cache_directory = "E:\\train\\aiblender\\qwen_image_cache" 
+
+
+# other datasets can be added here. each dataset can have different configurations

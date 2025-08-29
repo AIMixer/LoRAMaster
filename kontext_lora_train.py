@@ -568,7 +568,7 @@ def draw_ui():
                     with ui.item_section():
                         ui.item_label('Mixed Precision / 混合精度')
                         ui.item_label(
-                            '系统默认fp16').props(
+                            '系统默认bf16').props(
                             'caption')
                     with ui.item_section().props('side').classes('w-1/2'):
                         mixed_precision = ui.select(
