@@ -394,7 +394,6 @@ def run_wan_training():
             "--sample_every_n_epochs", str(sample_every_n_epochs),
             "--sample_every_n_steps", str(sample_every_n_steps),
             "--vae", sample_vae_path,
-            "--t5", sample_t5_path,
             # "--fp8_llm"
         ])
         if sample_at_first:
@@ -452,7 +451,7 @@ def stop_train():
     ui.notify(msg)
 
 def draw_ui():
-    ui.label('万相视频LoRA训练 (支持Wan2.1、Wan2.2)').classes('text-2xl font-bold')
+    ui.label('Qwen Image LoRA训练 (支持Qwen Image、Qwen Image Edit)').classes('text-2xl font-bold')
     with ui.row().classes('w-full no-wrap gap-4'):
         with ui.column().classes('w-2/3'):
             with ui.list().props('bordered separator').classes('w-full'):
