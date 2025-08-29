@@ -8,8 +8,8 @@ menu_items = [
     {"label": "万相视频 LoRA训练", "icon": "rocket", "key": "/Wan"},
     {"label": "Flux Kontext LoRA训练", "icon": "settings", "key": "/FluxKontext"},
     {"label": "Qwen Image LoRA训练", "icon": "rocket", "key": "/QwenImage"},
-    {"label": "混元视频 LoRA训练", "icon": "rocket", "key": "/HunyuanVideo"},
-    {"label": "FramePack LoRA训练", "icon": "download", "key": "/FramePack"},
+    # {"label": "混元视频 LoRA训练", "icon": "rocket", "key": "/HunyuanVideo"},
+    # {"label": "FramePack LoRA训练", "icon": "download", "key": "/FramePack"},
     {"label": "TensorBoard 仪表盘", "icon": "rocket", "key": "/Tensorboard"},
 ]
 
