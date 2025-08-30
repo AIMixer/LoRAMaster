@@ -90,7 +90,7 @@ def writePreCacheLog(message):
         if preCacheLogger:
             preCacheLogger.push(datetime.now().strftime("%Y-%m-%d %H:%M:%S ") +  message, classes='text-orange')
     except Exception as e:
-        logger.info('preCacheLogger error',e)
+        logger.info('logger error',e)
     logger.info(message)
 def writeTrainLog(message):
     try:

@@ -83,18 +83,22 @@ def preview_settings():
 
 
 def writePreCacheLog(message):
-
-    global preCacheLogger
-    print('writePreCacheLog', 'message:', message,'EEEnd')
-    if preCacheLogger:
-        preCacheLogger.push(datetime.now().strftime("%Y-%m-%d %H:%M:%S ") +  message, classes='text-orange')
+    try:
+        global preCacheLogger
+        print('writePreCacheLog', 'message:', message,'EEEnd')
+        if preCacheLogger:
+            preCacheLogger.push(datetime.now().strftime("%Y-%m-%d %H:%M:%S ") +  message, classes='text-orange')
+    except Exception as e:
+        logger.info('logger error',e)
     logger.info(message)
 def writeTrainLog(message):
-
-    global trainLogger
-    print('writeTrainLog', 'message:', message,'EEEnd')
-    if trainLogger:
-        trainLogger.push(datetime.now().strftime("%Y-%m-%d %H:%M:%S ") + message, classes='text-orange')
+    try:
+        global trainLogger
+        print('writeTrainLog', 'message:', message,'EEEnd')
+        if trainLogger:
+            trainLogger.push(datetime.now().strftime("%Y-%m-%d %H:%M:%S ") + message, classes='text-orange')
+    except Exception as e:
+        logger.info('logger error',e)
     logger.info(message)
 
 kontext_training_settings = load_settings()
