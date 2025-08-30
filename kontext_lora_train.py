@@ -181,7 +181,6 @@ def start_pre_caching():
         if return_code != 0:
             writePreCacheLog(f"\n[ERROR] 命令执行失败，返回码: {return_code}\n")
         writePreCacheLog('预缓存 2/2 完成!')
-        ui.notify('预缓存执行完成！')
 
 
 
@@ -198,7 +197,7 @@ def stop_pre_caching():
     if cache_process:
         cache_process.terminate()
     cache_process_is_running = False
-    ui.notify("已停止预缓存", type="info")
+    writePreCacheLog("已停止预缓存")
 
 
 def terminate_process_tree(proc: subprocess.Popen):
@@ -234,7 +233,6 @@ def stop_caching():
     else:
         msg = "当前没有正在进行的预缓存进程..."
     writePreCacheLog(msg)
-    ui.notify(msg)
 
 def make_prompt_file(
     prompt_text: str,
@@ -414,11 +412,9 @@ def run_wan_training():
         train_process = None
         if return_code != 0:
             writeTrainLog(f"\n[ERROR] 命令执行失败，返回码: {return_code}\n")
-            ui.notify('命令执行失败！')
         else:
             try:
                 writeTrainLog('训练完成!')
-                ui.notify('训练完成！')
             except Exception as e:
                 print(f"{e}")
             # 自动关机
@@ -445,7 +441,6 @@ def stop_train():
     else:
         msg = '当前没有正在进行的模型训练进程...'
     writeTrainLog(msg)
-    ui.notify(msg)
 
 def draw_ui():
     ui.label('Kontext LoRA训练').classes('text-2xl font-bold')
