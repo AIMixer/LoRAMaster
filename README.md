@@ -38,7 +38,8 @@ LoRAMaster 是一个开源的 **LoRA 训练工具**，支持最新的前沿模�
 5. [Wan2.2 图生视频LoRA训练教程（以视频特效为例）](https://www.bilibili.com/video/BV1JkekzWEzn)
 6. [Kontext LoRA训练教程（以提取花纹LoRA为例）](https://www.bilibili.com/video/BV1Pve9zZENV)
 7. [Qwen Image训练教程（以人物角色LoRA为例）](https://www.bilibili.com/video/BV1sPhXzJEJx)
-8. 持续更新中...
+8. [Qwen Image Edit训练教程（以提取花纹LoRA为例）](https://www.bilibili.com/video/BV1mKhezNEPz)
+9. 持续更新中...
 
 ## 💻 安装与运行
 👉 [点击这里，下载一键整合包](https://comfyit.cn/article/401)
