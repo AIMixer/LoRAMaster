@@ -90,7 +90,7 @@ def writePreCacheLog(message):
         if preCacheLogger:
             preCacheLogger.push(datetime.now().strftime("%Y-%m-%d %H:%M:%S ") +  message, classes='text-orange')
     except Exception as e:
-        logger.info('logger error',e)
+        logger.info('logger error')
     logger.info(message)
 def writeTrainLog(message):
     try:
@@ -99,7 +99,7 @@ def writeTrainLog(message):
         if trainLogger:
             trainLogger.push(datetime.now().strftime("%Y-%m-%d %H:%M:%S ") + message, classes='text-orange')
     except Exception as e:
-        logger.info('logger error',e)
+        logger.info('logger error')
     logger.info(message)
 
 wan_training_settings = load_settings()
@@ -269,7 +269,7 @@ def make_prompt_file(
     elif custom_prompt_txt and custom_prompt_path.strip():
         return custom_prompt_path.strip()
     else:
-        default_prompt_path = "./prompt_file.txt"
+        default_prompt_path = "./wan_prompt_file.txt"
         with open(default_prompt_path, "w", encoding="utf-8") as f:
             f.write("# prompt 1: for generating a cat video\n")
             line = f"{prompt_text} --w {w} --h {h} --f {frames} --d {seed} --s {steps}"

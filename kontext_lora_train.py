@@ -89,7 +89,7 @@ def writePreCacheLog(message):
         if preCacheLogger:
             preCacheLogger.push(datetime.now().strftime("%Y-%m-%d %H:%M:%S ") +  message, classes='text-orange')
     except Exception as e:
-        logger.info('logger error',e)
+        logger.info('logger error')
     logger.info(message)
 def writeTrainLog(message):
     try:
@@ -98,7 +98,7 @@ def writeTrainLog(message):
         if trainLogger:
             trainLogger.push(datetime.now().strftime("%Y-%m-%d %H:%M:%S ") + message, classes='text-orange')
     except Exception as e:
-        logger.info('logger error',e)
+        logger.info('logger error')
     logger.info(message)
 
 kontext_training_settings = load_settings()
@@ -238,7 +238,6 @@ def make_prompt_file(
     prompt_text: str,
     w: int,
     h: int,
-    frames: int,
     seed: int,
     steps: int,
     custom_prompt_txt: bool,
@@ -256,12 +255,12 @@ def make_prompt_file(
     elif custom_prompt_txt and custom_prompt_path.strip():
         return custom_prompt_path.strip()
     else:
-        default_prompt_path = "./prompt_file.txt"
+        default_prompt_path = "./kontext_prompt_file.txt"
         with open(default_prompt_path, "w", encoding="utf-8") as f:
             f.write("# prompt 1: for generating a cat video\n")
-            line = f"{prompt_text} --w {w} --h {h} --f {frames} --d {seed} --s {steps}"
+            line = f"{prompt_text} --w {w} --h {h} --d {seed} --s {steps}"
             if image_path:
-                line = line + ' --i ' + image_path
+                line = line + ' --ci ' + image_path
             line = line + '\n'
             f.write(line)
 
@@ -291,7 +290,6 @@ def run_wan_training():
     sample_image_path = kontext_training_settings['sample_image_path']
     sample_w = kontext_training_settings['sample_w']
     sample_h = kontext_training_settings['sample_h']
-    sample_frames = kontext_training_settings['sample_frames']
     sample_seed = kontext_training_settings['sample_seed']
     sample_steps = kontext_training_settings['sample_steps']
     custom_prompt_txt = kontext_training_settings['custom_prompt_txt']
@@ -377,7 +375,6 @@ def run_wan_training():
             prompt_text=sample_prompt_text,
             w=sample_w,
             h=sample_h,
-            frames=sample_frames,
             seed=sample_seed,
             steps=sample_steps,
             custom_prompt_txt=custom_prompt_txt,
@@ -387,9 +384,7 @@ def run_wan_training():
         command.extend([
             "--sample_prompts", prompt_file_final,
             "--sample_every_n_epochs", str(sample_every_n_epochs),
-            "--sample_every_n_steps", str(sample_every_n_steps),
-            "--vae", sample_vae_path,
-            "--t5", sample_t5_path,
+            "--sample_every_n_steps", str(sample_every_n_steps)
         ])
         if sample_at_first:
             command.extend(["--sample_at_first"])
@@ -671,68 +666,64 @@ def draw_ui():
                 ui.label('过程采样：').classes('font-bold mb-2').style(
                     'margin-left:10px;margin-top:10px')
                 ui.separator()
-                # with ui.item():
-                #     with ui.item_section():
-                #         ui.item_label('Generate Samples During Training / 训练期间生成示例')
-                #         ui.item_label('在训练期间生成采样示例，注意，这里会拖慢训练速度！').props('caption')
-                #     with ui.item_section().props('side').classes('w-1/2'):
-                #         generate_samples = ui.switch(value=kontext_training_settings['generate_samples'])
-                #         bind_setting(generate_samples, 'generate_samples')
+                with ui.item():
+                    with ui.item_section():
+                        ui.item_label('Generate Samples During Training / 训练期间生成示例')
+                        ui.item_label('在训练期间生成采样示例，注意，这里会拖慢训练速度！').props('caption')
+                    with ui.item_section().props('side').classes('w-1/2'):
+                        generate_samples = ui.switch(value=kontext_training_settings['generate_samples'])
+                        bind_setting(generate_samples, 'generate_samples')
 
-                # with ui.item().bind_visibility_from(generate_samples, 'value'):
-                #     with ui.item_section():
-                #         ui.item_label('Sample at first / 训练前生成示例')
-                #         ui.item_label('在训练开始前，先根据提示词生成一个示例！').props('caption')
-                #     with ui.item_section().props('side').classes('w-1/2'):
-                #         sample_at_first = ui.switch(value=kontext_training_settings['sample_at_first'])
-                #         bind_setting(sample_at_first, 'sample_at_first')
-                #
-                # with ui.item().bind_visibility_from(generate_samples, 'value'):
-                #     with ui.row().classes('w-full no-wrap gap-4'):
-                #         sample_epoch = ui.number('Sample Every N Epochs / 每N个轮次采样一次',
-                #                                  value=kontext_training_settings['sample_every_n_epochs']).props(
-                #             'outlined').classes('w-1/2')
-                #         sample_step = ui.number('Sample Every N Steps / 每N步采样一次',
-                #                                 value=kontext_training_settings['sample_every_n_steps']).props(
-                #             'outlined').classes('w-1/2')
-                #         bind_setting(sample_epoch, 'sample_every_n_epochs')
-                #         bind_setting(sample_step, 'sample_every_n_steps')
-                # with ui.item().bind_visibility_from(generate_samples, 'value'):
-                #     with ui.row().classes('w-full no-wrap gap-4'):
-                #         sample_prompt = ui.input('Prompt Text / 提示词',
-                #                                  value=kontext_training_settings['sample_prompt_text']).props(
-                #             'outlined').classes('w-full')
-                #         bind_setting(sample_prompt, 'sample_prompt_text')
-                # with ui.item().bind_visibility_from(generate_samples, 'value'):
-                #     with ui.row().classes('w-full no-wrap gap-4'):
-                #         sample_image_path = ui.input('Image Path / 图片路径',
-                #                                      value=kontext_training_settings['sample_image_path']).props(
-                #             'outlined').classes('w-full')
-                #         bind_setting(sample_image_path, 'sample_image_path')
-                # with ui.item().bind_visibility_from(generate_samples, 'value'):
-                #     with ui.row().classes('w-full no-wrap gap-4'):
-                #         sample_w = ui.number('Width (w) / 宽度', value=kontext_training_settings['sample_w']).props(
-                #             'outlined').classes(
-                #             'w-1/3')
-                #         sample_h = ui.number('Height (h) / 高度', value=kontext_training_settings['sample_h']).props(
-                #             'outlined').classes(
-                #             'w-1/3')
-                #         sample_frames = ui.number('Frames (f) / 帧数',
-                #                                   value=kontext_training_settings['sample_frames']).props(
-                #             'outlined').classes('w-1/3')
-                #
-                #         bind_setting(sample_w, 'sample_w')
-                #         bind_setting(sample_h, 'sample_h')
-                #         bind_setting(sample_frames, 'sample_frames')
-                # with ui.item().bind_visibility_from(generate_samples, 'value'):
-                #     with ui.row().classes('w-full no-wrap gap-4'):
-                #         sample_seed = ui.number('Seed (d) / 种子', value=kontext_training_settings['sample_seed']).props(
-                #             'outlined').classes('w-1/2')
-                #         sample_steps = ui.number('Steps (s) / 步数', value=kontext_training_settings['sample_steps']).props(
-                #             'outlined').classes('w-1/2')
-                #
-                #         bind_setting(sample_seed, 'sample_seed')
-                #         bind_setting(sample_steps, 'sample_steps')
+                with ui.item().bind_visibility_from(generate_samples, 'value'):
+                    with ui.item_section():
+                        ui.item_label('Sample at first / 训练前生成示例')
+                        ui.item_label('在训练开始前，先根据提示词生成一个示例！').props('caption')
+                    with ui.item_section().props('side').classes('w-1/2'):
+                        sample_at_first = ui.switch(value=kontext_training_settings['sample_at_first'])
+                        bind_setting(sample_at_first, 'sample_at_first')
+
+                with ui.item().bind_visibility_from(generate_samples, 'value'):
+                    with ui.row().classes('w-full no-wrap gap-4'):
+                        sample_epoch = ui.number('Sample Every N Epochs / 每N个轮次采样一次',
+                                                 value=kontext_training_settings['sample_every_n_epochs']).props(
+                            'outlined').classes('w-1/2')
+                        sample_step = ui.number('Sample Every N Steps / 每N步采样一次',
+                                                value=kontext_training_settings['sample_every_n_steps']).props(
+                            'outlined').classes('w-1/2')
+                        bind_setting(sample_epoch, 'sample_every_n_epochs')
+                        bind_setting(sample_step, 'sample_every_n_steps')
+                with ui.item().bind_visibility_from(generate_samples, 'value'):
+                    with ui.row().classes('w-full no-wrap gap-4'):
+                        sample_prompt = ui.input('Prompt Text / 提示词',
+                                                 value=kontext_training_settings['sample_prompt_text']).props(
+                            'outlined').classes('w-full')
+                        bind_setting(sample_prompt, 'sample_prompt_text')
+                with ui.item().bind_visibility_from(generate_samples, 'value'):
+                    with ui.row().classes('w-full no-wrap gap-4'):
+                        sample_image_path = ui.input('Image Path / 图片路径',
+                                                     value=kontext_training_settings['sample_image_path']).props(
+                            'outlined').classes('w-full')
+                        bind_setting(sample_image_path, 'sample_image_path')
+                with ui.item().bind_visibility_from(generate_samples, 'value'):
+                    with ui.row().classes('w-full no-wrap gap-4'):
+                        sample_w = ui.number('Width (w) / 宽度', value=kontext_training_settings['sample_w']).props(
+                            'outlined').classes(
+                            'w-1/2')
+                        sample_h = ui.number('Height (h) / 高度', value=kontext_training_settings['sample_h']).props(
+                            'outlined').classes(
+                            'w-1/2')
+
+                        bind_setting(sample_w, 'sample_w')
+                        bind_setting(sample_h, 'sample_h')
+                with ui.item().bind_visibility_from(generate_samples, 'value'):
+                    with ui.row().classes('w-full no-wrap gap-4'):
+                        sample_seed = ui.number('Seed (d) / 种子', value=kontext_training_settings['sample_seed']).props(
+                            'outlined').classes('w-1/2')
+                        sample_steps = ui.number('Steps (s) / 步数', value=kontext_training_settings['sample_steps']).props(
+                            'outlined').classes('w-1/2')
+
+                        bind_setting(sample_seed, 'sample_seed')
+                        bind_setting(sample_steps, 'sample_steps')
 
                 ui.separator()
                 ui.label('输出：').classes('font-bold mb-2').style('margin-left:10px;margin-top:10px')
