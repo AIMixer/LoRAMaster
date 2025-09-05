@@ -156,7 +156,7 @@ def start_pre_caching():
         writePreCacheLog('开始执行预缓存 1/2 ...')
         writePreCacheLog(' '.join(cache_latents_cmd))
         global cache_process
-        cache_process = subprocess.Popen(cache_latents_cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, env=env)
+        cache_process = subprocess.Popen(cache_latents_cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, env=env,encoding='utf-8',errors='ignore')
 
         for line in cache_process.stdout:
             writePreCacheLog(line.strip())
@@ -170,7 +170,7 @@ def start_pre_caching():
         writePreCacheLog('开始执行预缓存2/2...')
         writePreCacheLog(' '.join(cache_text_encoder_cmd))
         cache_process = subprocess.Popen(cache_text_encoder_cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True,
-                                         env=env)
+                                         env=env,encoding='utf-8',errors='ignore')
 
         for line in cache_process.stdout:
             print(line)
@@ -399,7 +399,7 @@ def run_wan_training():
 
     def run_and_stream_output():
         global train_process
-        train_process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True,env=env)
+        train_process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True,env=env,encoding='utf-8',errors='ignore')
 
         for line in train_process.stdout:
             writeTrainLog(line)
@@ -440,7 +440,7 @@ def stop_train():
 def draw_ui():
     ui.label('Kontext LoRA训练').classes('text-2xl font-bold')
     with ui.row().classes('w-full no-wrap gap-4'):
-        with ui.column().classes('w-2/3'):
+        with ui.column().classes('w-3/4'):
             with ui.list().props('bordered separator').classes('w-full'):
                 ui.item_label('① 基本设置').props('header').classes('text-xl font-bold mb-2')
                 ui.separator()
@@ -797,7 +797,7 @@ def draw_ui():
                     trainLogger = ui.log().classes('w-full h-30')
 
 
-        with ui.column().classes('w-1/3').classes('bg-blue-100').style('padding:10px'):
+        with ui.column().classes('w-1/4').classes('bg-blue-100').style('padding:10px'):
             ui.label('参数预览').classes('text-xl font-bold mb-2')
             global settings_text
             settings_preview_label = ui.label('').bind_text_from(settings_text,'content').style("white-space: pre-wrap;")

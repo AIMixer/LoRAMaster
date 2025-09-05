@@ -16,7 +16,7 @@ tensorboard_process = subprocess.Popen([
     'tensorboard',
     '--logdir', './logs',     # 你的训练日志路径
     '--port', '6006',
-    '--host', '127.0.0.1'
+    '--host', '0.0.0.0'
 ])
 
 @atexit.register
