@@ -25,6 +25,7 @@ LoRAMaster 是一个开源的 **LoRA 训练工具**，支持最新的前沿模�
 | Wan 2.2 (T2V、I2V) | ✅ 支持     |
 | Kontext           | ✅ 支持     |
 | Qwen-Image        | ✅ 支持      |
+| Qwen-Image Edit   | ✅ 支持      |
 | HunyuanVideo      | 🔧 开发中     |
 | FramePack         | 🔧 开发中   |
 
