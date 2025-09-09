@@ -29,7 +29,7 @@ LoRAMaster 是一个开源的 **LoRA 训练工具**，支持最新的前沿模�
 
 
 ## 视频教程
-### 本地教程
+### 本地训练教程
 1. [LoRA训练大师简介与安装方法](https://www.bilibili.com/video/BV1kdeuzvE2j/)
 2. [Wan2.1 文生视频LoRA训练教程（以人物角色为例）](https://www.bilibili.com/video/BV19BYUz4EHz)
 3. [Wan2.1 图生视频LoRA训练教程（以视频特效为例）](https://www.bilibili.com/video/BV1sAeqz1ETM)
@@ -39,7 +39,7 @@ LoRAMaster 是一个开源的 **LoRA 训练工具**，支持最新的前沿模�
 7. [Qwen Image训练教程（以人物角色LoRA为例）](https://www.bilibili.com/video/BV1sPhXzJEJx)
 8. [Qwen Image Edit训练教程（以提取花纹LoRA为例）](https://www.bilibili.com/video/BV1mKhezNEPz)
 9. 持续更新中...
-### 云端教程（仙宫云）
+### 云端训练教程（仙宫云）
 1. [Wan2.1 文生视频LoRA训练教程（以人物角色为例）](https://www.bilibili.com/video/BV16WagzbEog)
 3. [Wan2.1 图生视频LoRA训练教程（以视频特效为例）](https://www.bilibili.com/video/BV1tHatz9Ej7)
 4. [Wan2.2 文生视频LoRA训练教程（以人物角色为例）](https://www.bilibili.com/video/BV1dCaqz8EpN)
@@ -49,7 +49,7 @@ LoRAMaster 是一个开源的 **LoRA 训练工具**，支持最新的前沿模�
 8. [Qwen Image Edit训练教程（以提取花纹LoRA为例）](https://www.bilibili.com/video/BV1AnYTzZEUG)
 9. 持续更新中...
 
-## 💻 安装与运行
+## 💻 本地安装与运行
 
 ### 方式一：本地一键整合包
 👉 [点击这里，下载一键整合包](https://comfyit.cn/article/401)
