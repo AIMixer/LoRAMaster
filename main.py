@@ -73,4 +73,4 @@ def settings_page():
 # --------------------------
 # 启动默认首页
 # --------------------------
-ui.run(reload=False,title='LoRA训练大师 - by AI搅拌手',port=9090)
+ui.run(reload=False,title='LoRA训练大师 - by AI搅拌手',port=8080)
