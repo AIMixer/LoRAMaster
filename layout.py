@@ -8,7 +8,7 @@ menu_items = [
     {"label": "万相视频 LoRA训练", "icon": "rocket", "key": "/Wan"},
     {"label": "Flux Kontext LoRA训练", "icon": "settings", "key": "/FluxKontext"},
     {"label": "Qwen Image LoRA训练", "icon": "rocket", "key": "/QwenImage"},
-    # {"label": "混元视频 LoRA训练", "icon": "rocket", "key": "/HunyuanVideo"},
+    {"label": "混元视频 LoRA训练", "icon": "rocket", "key": "/HunyuanVideo"},
     # {"label": "FramePack LoRA训练", "icon": "download", "key": "/FramePack"},
     {"label": "TensorBoard 仪表盘", "icon": "rocket", "key": "/Tensorboard"},
 ]
@@ -52,8 +52,8 @@ def with_layout(content_func):
                 ui.label(item["label"]).classes('text-base')
         # 显示广告内容
         with ui.element().classes('fixed bottom-5 left-5 w-[260px]'):
-            with ui.link(target='https://space.bilibili.com/1997403556', new_tab=True):
-                ui.image('assets/follow.png').classes('w-full h-[100px]').style('margin-bottom:5px')
+            with ui.link(target='https://www.bilibili.com/video/BV1kdeuzvE2j', new_tab=True):
+                ui.image('assets/jiaocheng.png').classes('w-full h-[100px]').style('margin-bottom:5px')
             with ui.link(target='https://comfyit.cn', new_tab=True):
                 ui.image('assets/master.png').classes('w-full h-[100px]')
     # 右侧抽屉栏
