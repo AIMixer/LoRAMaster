@@ -6,6 +6,7 @@ import framepack_lora_train
 import  hunyuan_lora_train
 import kontext_lora_train
 import qwen_image_lora_train
+import flux_lora_train
 import  sys,os
 sys.path.append(os.path.join(os.path.dirname(__file__), 'musubi-tuner'))
 import subprocess
@@ -55,6 +56,11 @@ def kontext_train_page():
         kontext_lora_train.draw_ui()
     with_layout(content)
 
+@ui.page('/Flux')
+def flux_train_page():
+    def content():
+        flux_lora_train.draw_ui()
+    with_layout(content)
 @ui.page('/QwenImage')
 def qwen_image_page():
     def content():

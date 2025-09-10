@@ -63,6 +63,7 @@ Python要求：3.12（作者基于3.12.10测试）
 git clone https://github.com/AIMixer/LoRAMaster.git
 cd LoRAMaster
 git clone https://github.com/kohya-ss/musubi-tuner.git
+git clone -b sd3 --single-branch https://github.com/kohya-ss/sd-scripts
 ```
 
 2. 创建虚拟环境并安装依赖：
@@ -77,6 +78,9 @@ cd musubi-tuner
 pip install -e .
 cd ..
 pip install -r requirements.txt
+cd sd-scripts
+pip install -r requirements.txt
+cd ..
 ```
 
 3. 启动 LoRAMaster：
@@ -103,6 +107,26 @@ python main.py
 | CLIP Model                | Clip模型          | [下载](https://www.modelscope.cn/models/muse/open-clip-xlm-roberta-large-vit-huge-14/files) |
 
 
-## 一键整合包
+## ⚖️ 使用条款
 
-👉 [点击这里，下载一键整合包](https://comfyit.cn/article/401)
+1. **本地使用完全免費**  
+   - 本工具仅供本地环境运行。  
+   - 不允许在未经作者本人授权，直接或间接在任何 **云端平台、在线服务或远程服务器** 中部署。  
+
+2. **禁止修改和二次分发**  
+   - 未经作者书面许可，不得修改、拆分、二次开发或再分发本项目。  
+   - 不得将本项目代码或衍生品用于 **商业化分发** 或 **SaaS 服务**。  
+
+3. **云端使用需授权**  
+   - 若需将本项目部署到云端（如私有服务器、商用云服务、远程训练平台等），必须事先获得作者明确授权。  
+
+4. **个人学习与研究**  
+   - 欢迎个人学习、研究、实验使用，但请严格遵守以上限制。  
+
+---
+
+## 🔑 授权方式
+如需 **商业合作、云端授权或定制功能**，请联系作者：  
+- B站主页：[AI搅拌手](https://space.bilibili.com/1997403556)
+- QQ交流群：551482703
+- 作者QQ：3697688140

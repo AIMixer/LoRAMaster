@@ -1,0 +1,2 @@
+# prompt 1: for generating a cat video
+aiblender,
