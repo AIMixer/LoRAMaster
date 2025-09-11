@@ -492,6 +492,8 @@ def draw_ui():
             with ui.list().props('bordered separator').classes('w-full'):
                 ui.item_label('① 基本设置').props('header').classes('text-xl font-bold mb-2')
                 ui.separator()
+                ui.label('模型配置：').classes('font-bold mb-2').style('margin-left:10px;margin-top:10px')
+                ui.separator()
                 with ui.item():
                     with ui.item_section():
                         ui.item_label('Base Model Type / 底膜类型')
@@ -511,15 +513,7 @@ def draw_ui():
                             value=wan_training_settings['dit_weights_path']).props(
                             'rounded outlined dense').classes('w-full')
                         bind_setting(dit_weights_path, 'dit_weights_path')
-                with ui.item():
-                    with ui.item_section():
-                        ui.item_label('Input toml path / 输入toml文件路径')
-                        ui.item_label('toml配置文件的绝对路径，如如:E:\\wan_lora_train\\config.toml').props('caption')
-                    with ui.item_section().props('side').classes('w-1/2'):
-                        dataset_config = ui.input(placeholder='如:E:\\wan_lora_train\\config.toml',
-                                                  value=wan_training_settings["dataset_config"]).classes(
-                            'w-full').props('rounded outlined dense')
-                        bind_setting(dataset_config, 'dataset_config')
+
                 with ui.item():
                     with ui.item_section():
                         ui.item_label('Wan VAE File Path / Wan VAE文件路径')
@@ -563,6 +557,19 @@ def draw_ui():
 
                         fp8 = ui.switch(value=wan_training_settings['fp8'])
                         bind_setting(fp8, 'fp8')
+
+                ui.separator()
+                ui.label('训练素材配置：').classes('font-bold mb-2').style('margin-left:10px;margin-top:10px')
+                ui.separator()
+                with ui.item():
+                    with ui.item_section():
+                        ui.item_label('Input toml path / 输入toml文件路径')
+                        ui.item_label('toml配置文件的绝对路径，如如:E:\\wan_lora_train\\config.toml').props('caption')
+                    with ui.item_section().props('side').classes('w-1/2'):
+                        dataset_config = ui.input(placeholder='如:E:\\wan_lora_train\\config.toml',
+                                                  value=wan_training_settings["dataset_config"]).classes(
+                            'w-full').props('rounded outlined dense')
+                        bind_setting(dataset_config, 'dataset_config')
 
             with ui.list().props('bordered separator').classes('w-full'):
                 ui.item_label('② 预缓存').props('header').classes('text-xl font-bold mb-2')

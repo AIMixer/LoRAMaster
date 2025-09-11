@@ -25,7 +25,8 @@ LoRAMaster 是一个开源的 **LoRA 训练工具**，支持最新的前沿模�
 | Qwen-Image        | ✅ 支持      |
 | Qwen-Image Edit   | ✅ 支持      |
 | HunyuanVideo      | ✅ 支持     |
-| Flux              | 🔧 开发中   |
+| Flux              | ✅ 支持     |
+| SDXL              | 🔧 开发中   |
 
 
 ## 视频教程
