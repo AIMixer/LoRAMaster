@@ -1,0 +1,14 @@
+[general]
+shuffle_caption = false
+caption_extension = '.txt'
+keep_tokens = 1
+
+[[datasets]]
+resolution = 768
+batch_size = 1
+keep_tokens = 1
+
+[[datasets.subsets]]
+image_dir = 'E:\\train\\aiblender_v4\\images'
+class_tokens = 'aiblender,'
+num_repeats = 10

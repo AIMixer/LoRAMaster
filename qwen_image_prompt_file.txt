@@ -1,2 +1,2 @@
 # prompt 1: for generating a cat video
-Extract the fabric print. Delete folds, buttons, seams, and shadows.print smooth spread across the entire canvas. --w 512 --h 512 --d 666666 --s 10 --ci E:\train\tiquhuawen\controls\1.png
+aijbs --w 512 --h 512 --d 666666 --s 10 --ci E:\train\tiquhuawen\controls\1.png
