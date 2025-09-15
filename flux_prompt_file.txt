@@ -1,2 +1,2 @@
 # prompt 1: for generating a cat video
-aiblender,
+jblfg, masterpiece, best quality, 1girl, in white shirts, full body, looking at viewer, simple background, blue sky
