@@ -41,3 +41,6 @@ log_dir = "./logs"
 log_tracker_name = ""
 offload_inactive_dit = false
 mixed_precision = "bf16"
+lr_scheduler = "cosine_with_restarts"
+lr_warmup_steps = "0"
+lr_scheduler_num_cycles = "1"

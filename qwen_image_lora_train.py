@@ -334,6 +334,9 @@ def run_wan_training():
     env['PYTHONIOENCODING'] = 'utf-8'
     env['LOG_LEVEL'] = 'DEBUG'
 
+    lr_scheduler = qwen_image_training_settings['lr_scheduler']
+    lr_scheduler_num_cycles = qwen_image_training_settings['lr_scheduler_num_cycles']
+    lr_warmup_steps = qwen_image_training_settings['lr_warmup_steps']
 
     command = [
         python_executable, "-m", "accelerate.commands.launch",
@@ -363,7 +366,9 @@ def run_wan_training():
         "--output_dir", output_dir,
         "--output_name", output_name,
         "--seed","42",
-        "--log_with",log_type
+        "--log_with",log_type,
+        "--lr_scheduler", lr_scheduler,
+        "--lr_warmup_steps", str(lr_warmup_steps)
     ]
     if attention_implementation == 'sdpa':
         command.extend(['--sdpa'])
@@ -407,7 +412,8 @@ def run_wan_training():
         command.extend(['--log_prefix', log_prefix])
     if log_tracker_name:
         command.extend(['--log_tracker_name', log_tracker_name])
-
+    if lr_scheduler == 'cosine_with_restarts':
+        command.extend(['--lr_scheduler_num_cycles', str(lr_scheduler_num_cycles)])
 
     def run_and_stream_output():
         global train_process
@@ -566,6 +572,32 @@ def draw_ui():
                     with ui.item_section().props('side').classes('w-1/2'):
                         learning_rate = ui.input(value=qwen_image_training_settings['learning_rate']).props('rounded outlined dense').classes('w-1/2')
                         bind_setting(learning_rate, 'learning_rate')
+                with ui.item():
+                    with ui.item_section():
+                        ui.item_label('Learning Rate Scheduler / 学习率调度器')
+                        ui.item_label('学习率调度器').props('caption')
+                    with ui.item_section().props('side').classes('w-1/2'):
+                        lr_scheduler = ui.select(
+                            ['cosine_with_restarts', 'linear', 'cosine', 'polynomial', 'constant', 'constant_with_warmup'],
+                            value=qwen_image_training_settings['lr_scheduler']).props('rounded outlined dense').classes('w-1/2')
+                        bind_setting(lr_scheduler, 'lr_scheduler')
+                with ui.item():
+                    with ui.item_section():
+                        ui.item_label('Learning Rate Warmup Steps / 学习率预热步数')
+                        ui.item_label('学习率预热步数').props('caption')
+                    with ui.item_section().props('side').classes('w-1/2'):
+                        lr_warmup_steps = ui.number(value=qwen_image_training_settings['lr_warmup_steps']).props(
+                            'rounded outlined dense').classes('w-1/2')
+                        bind_setting(lr_warmup_steps, 'lr_warmup_steps')
+
+                with ui.item():
+                    with ui.item_section():
+                        ui.item_label('Learning Rate Scheduler Num Cycles / 重启次数')
+                        ui.item_label('只有调度器为cosine_with_restarts时起作用').props('caption')
+                    with ui.item_section().props('side').classes('w-1/2'):
+                        lr_scheduler_num_cycles = ui.number(value=qwen_image_training_settings['lr_scheduler_num_cycles']).props(
+                            'rounded outlined dense').classes('w-1/2')
+                        bind_setting(lr_scheduler_num_cycles, 'lr_scheduler_num_cycles')
                 with ui.item():
                     with ui.item_section():
                         ui.item_label('Optimizer Type / 优化器类型')
