@@ -190,6 +190,7 @@ def run_wan_training():
     lr_scheduler = flux_training_settings['lr_scheduler']
     lr_scheduler_num_cycles = flux_training_settings['lr_scheduler_num_cycles']
     lr_warmup_steps = flux_training_settings['lr_warmup_steps']
+    custom_params = flux_training_settings['custom_params']
 
     command = [
         python_executable, "-m", "accelerate.commands.launch",
@@ -223,7 +224,7 @@ def run_wan_training():
         "--log_with",log_type,
         "--model_prediction_type","raw",
         "--lr_scheduler",lr_scheduler,
-        "--lr_warmup_steps",str(lr_warmup_steps)
+        "--lr_warmup_steps",str(lr_warmup_steps),
 
     ]
     if cache_to_disk:
@@ -259,7 +260,8 @@ def run_wan_training():
         command.extend(['--log_tracker_name', log_tracker_name])
     if lr_scheduler == 'cosine_with_restarts':
         command.extend(['--lr_scheduler_num_cycles', str(lr_scheduler_num_cycles)])
-
+    if custom_params:
+        command.extend([custom_params])
 
     def run_and_stream_output():
         global train_process
@@ -634,6 +636,17 @@ def draw_ui():
                             value=flux_training_settings['log_type']).props(
                             'rounded outlined dense').classes('w-1/2')
                         bind_setting(log_type, 'log_type')
+                ui.separator()
+                ui.label('自定义参数：').classes('font-bold mb-2').style('margin-left:10px;margin-top:10px')
+                ui.separator()
+                with ui.item():
+                    with ui.item_section():
+                        ui.item_label('Custom Parameter / 自定义参数')
+                        ui.item_label('用户可以将自定义参数，加入的训练参数里，如--p v').props('caption')
+                    with ui.item_section().props('side').classes('w-1/2'):
+                        custom_params = ui.input(value=flux_training_settings['custom_params']).props(
+                            'rounded outlined dense').classes('w-full')
+                        bind_setting(custom_params, 'custom_params')
                 ui.separator()
                 ui.label('自动关机').classes('font-bold mb-2').style('margin-left:10px;margin-top:10px')
                 ui.separator()

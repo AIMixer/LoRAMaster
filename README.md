@@ -51,7 +51,7 @@ LoRAMaster 是一个开源的 **LoRA 训练工具**，支持最新的前沿模�
 7. [Qwen Image Edit训练教程（以提取花纹LoRA为例）](https://www.bilibili.com/video/BV1AnYTzZEUG)
 8. [Flux 训练教程（以人物角色LoRA为例）](https://www.bilibili.com/video/BV16THezwEwc)
 9. [Flux 风格LoRA训练教程](https://www.bilibili.com/video/BV1jqpCz4Eoc)
-9. 持续更新中...
+10. 持续更新中...
 
 ## 💻 本地安装与运行
 

@@ -349,7 +349,7 @@ def run_wan_training():
     lr_scheduler = wan_training_settings['lr_scheduler']
     lr_scheduler_num_cycles = wan_training_settings['lr_scheduler_num_cycles']
     lr_warmup_steps = wan_training_settings['lr_warmup_steps']
-
+    custom_params = wan_training_settings['custom_params']
 
     command = [
         python_executable, "-m", "accelerate.commands.launch",
@@ -443,7 +443,8 @@ def run_wan_training():
         # 懒加载
         if lazy_loading:
             command.extend(['--lazy_loading'])
-
+    if custom_params:
+        command.extend([custom_params])
 
     def run_and_stream_output():
         global train_process
@@ -987,6 +988,18 @@ def draw_ui():
                 #         log_dir = ui.input(value=wan_training_settings['log_dir']).props(
                 #             'rounded outlined dense').classes('w-1/2')
                 #         bind_setting(log_dir, 'log_dir')
+                ui.separator()
+                ui.label('自定义参数：').classes('font-bold mb-2').style('margin-left:10px;margin-top:10px')
+                ui.separator()
+                with ui.item():
+                    with ui.item_section():
+                        ui.item_label('Custom Parameter / 自定义参数')
+                        ui.item_label('用户可以将自定义参数，加入的训练参数里，如--p v').props('caption')
+                    with ui.item_section().props('side').classes('w-1/2'):
+                        custom_params = ui.input(value=wan_training_settings['custom_params']).props(
+                            'rounded outlined dense').classes('w-full')
+                        bind_setting(custom_params, 'custom_params')
+
                 ui.separator()
                 ui.label('自动关机').classes('font-bold mb-2').style('margin-left:10px;margin-top:10px')
                 ui.separator()
