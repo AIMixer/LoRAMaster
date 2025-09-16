@@ -39,6 +39,6 @@ mixed_precision = "bf16"
 discrete_flow_shift = "3.1582"
 fp8 = true
 cache_to_disk = true
-lr_scheduler = "linear"
+lr_scheduler = "constant"
 lr_warmup_steps = "0"
 lr_scheduler_num_cycles = "1"
