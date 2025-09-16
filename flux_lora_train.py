@@ -106,9 +106,6 @@ preview_settings()
 
 
 def terminate_process_tree(proc: subprocess.Popen):
-    """
-    递归终止指定进程及其所有子进程，适用于加速器或多进程场景。
-    """
     if proc is None:
         return
     try:

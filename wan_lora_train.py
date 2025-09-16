@@ -203,7 +203,6 @@ def start_pre_caching():
 
 
 def stop_pre_caching():
-    """停止任务（绑定到停止按钮）"""
     global cache_process_is_running
     if not cache_process_is_running:
         return
@@ -214,9 +213,6 @@ def stop_pre_caching():
 
 
 def terminate_process_tree(proc: subprocess.Popen):
-    """
-    递归终止指定进程及其所有子进程，适用于加速器或多进程场景。
-    """
     if proc is None:
         return
     try:
@@ -259,11 +255,6 @@ def make_prompt_file(
     prompt_file_upload: str = None,
     image_path:str = None
 ) -> str:
-    """
-    如果上传了 prompt_file.txt，则直接返回该文件路径；
-    否则，如果勾选了自定义且输入了路径，则返回该路径；
-    否则自动生成默认的 prompt 文件。
-    """
     if prompt_file_upload and os.path.isfile(prompt_file_upload):
         return prompt_file_upload
     elif custom_prompt_txt and custom_prompt_path.strip():
