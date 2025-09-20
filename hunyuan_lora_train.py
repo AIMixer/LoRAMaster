@@ -85,7 +85,7 @@ def preview_settings():
 def writePreCacheLog(message):
 
     global preCacheLogger
-    print('writePreCacheLog', 'message:', message,'EEEnd')
+    # print('writePreCacheLog', 'message:', message,'EEEnd')
     try:
         if preCacheLogger:
             preCacheLogger.push(datetime.now().strftime("%Y-%m-%d %H:%M:%S ") +  message, classes='text-orange')

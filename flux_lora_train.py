@@ -83,7 +83,7 @@ def preview_settings():
 def writePreCacheLog(message):
     try:
         global preCacheLogger
-        print('writePreCacheLog', 'message:', message,'EEEnd')
+        # print('writePreCacheLog', 'message:', message,'EEEnd')
         if preCacheLogger:
             preCacheLogger.push(datetime.now().strftime("%Y-%m-%d %H:%M:%S ") +  message, classes='text-orange')
     except Exception as e:
@@ -92,7 +92,7 @@ def writePreCacheLog(message):
 def writeTrainLog(message):
     try:
         global trainLogger
-        print('writeTrainLog', 'message:', message,'EEEnd')
+        # print('writeTrainLog', 'message:', message,'EEEnd')
         if trainLogger:
             trainLogger.push(datetime.now().strftime("%Y-%m-%d %H:%M:%S ") + message, classes='text-orange')
     except Exception as e:
