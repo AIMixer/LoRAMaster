@@ -1,0 +1,4 @@
+dataset_path = "E:\\train\\loramastertest\\test"
+target_suffix = "jpg"
+target_prefix = ""
+target_num = "6"

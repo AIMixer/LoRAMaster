@@ -1,9 +1,9 @@
 from nicegui import ui
 
-active_menu = "dashboard"
+active_menu = "/"
 
-# 左侧菜单项
-menu_items = [
+# 模型训练菜单项
+train_menu_items = [
     {"label": "关于LoRA训练大师", "icon": "rocket", "key": "/"},
     {"label": "万相视频 LoRA训练", "icon": "rocket", "key": "/Wan"},
     {"label": "Flux Kontext LoRA训练", "icon": "settings", "key": "/FluxKontext"},
@@ -13,6 +13,29 @@ menu_items = [
     # {"label": "FramePack LoRA训练", "icon": "download", "key": "/FramePack"},
     {"label": "TensorBoard 仪表盘", "icon": "rocket", "key": "/Tensorboard"},
 ]
+
+# 素材处理菜单项
+caption_menu_items = [
+    {"label": "素材打标", "icon": "rocket", "key": "/AutoCaptioning"},
+    {"label": "素材转格式", "icon": "rocket", "key": "/ImageConvert"},
+    {"label": "素材重命名", "icon": "rocket", "key": "/ImageRename"},
+]
+
+def is_train():
+    train_active = False
+    for item in train_menu_items:
+        uri = ui.context.client.request.url.path
+        if uri == item["key"]:
+            train_active = True
+    return train_active
+
+def is_caption():
+    caption_active = False
+    for item in caption_menu_items:
+        uri = ui.context.client.request.url.path
+        if uri == item["key"]:
+            caption_active = True
+    return caption_active
 
 def with_layout(content_func):
     """
@@ -31,7 +54,29 @@ def with_layout(content_func):
         with ui.row().classes('items-center'):
             ui.image('assets/logo.png').style('width:50px;height:50px')
             ui.label('LoRAMaster / LoRA训练大师 by AI搅拌手').classes('text-xl font-bold ml-2')
+
         with ui.row().classes('items-center'):
+            train_button = ui.link("模型训练", "/").props('flat').classes(
+                f'flex items-center text-left p-3 rounded-lg text-lg text-white'
+            ).style('font-weight: bold;')
+
+            train_button_active = is_train()
+            if train_button_active:
+                train_button.style('text-decoration-line: underline;text-decoration-thickness: 2px;text-underline-offset: 12px;')
+            else:
+                train_button.style('text-decoration: none;')
+
+            caption_button = ui.link("素材打标与处理", "/AutoCaptioning").props('flat').classes(
+                f'flex items-center text-left p-3 rounded-lg text-lg text-white'
+            ).style('font-weight: bold;')
+            caption_button_active = is_caption()
+            if caption_button_active:
+                caption_button.style(
+                    'text-decoration-line: underline;text-decoration-thickness: 2px;text-underline-offset: 12px;')
+            else:
+                caption_button.style('text-decoration: none;')
+
+
             ui.label('QQ交流群：551482703')
             ui.html("""
                 <a href="https://space.bilibili.com/1997403556" target="_blank">联系作者：AI搅拌手</a>
@@ -42,15 +87,28 @@ def with_layout(content_func):
 
     # 左侧导航栏
     with ui.left_drawer().classes('bg-blue-50'):
-        for item in menu_items:
-            is_active = (item["key"] == active_menu)
-            button = ui.button(on_click=lambda key=item["key"]: switch_page(key)).props('flat').classes(
-                f'flex items-center w-full text-left p-3 rounded-lg transition-colors '
-                + ('bg-gray-800 border-l-4 border-blue-500' if is_active else 'hover:bg-gray-800')
-            )
-            with button:
-                # ui.icon(item["icon"]).classes('mr-3')
-                ui.label(item["label"]).classes('text-base')
+        if is_train():
+            for item in train_menu_items:
+                uri = ui.context.client.request.url.path
+                is_active = (uri == item["key"])
+                button = ui.button(on_click=lambda key=item["key"]: switch_page(key)).props('flat').classes(
+                    f'flex items-center w-full text-left p-3 rounded-lg transition-colors '
+                    + ('bg-gray-800 border-l-4 border-blue-500' if is_active else 'hover:bg-gray-800')
+                )
+                with button:
+                    # ui.icon(item["icon"]).classes('mr-3')
+                    ui.label(item["label"]).classes('text-base')
+        if is_caption():
+            for item in caption_menu_items:
+                uri = ui.context.client.request.url.path
+                is_active = (uri == item["key"])
+                button = ui.button(on_click=lambda key=item["key"]: switch_page(key)).props('flat').classes(
+                    f'flex items-center w-full text-left p-3 rounded-lg transition-colors '
+                    + ('bg-gray-800 border-l-4 border-blue-500' if is_active else 'hover:bg-gray-800')
+                )
+                with button:
+                    # ui.icon(item["icon"]).classes('mr-3')
+                    ui.label(item["label"]).classes('text-base')
         # 显示广告内容
         with ui.element().classes('fixed bottom-5 left-5 w-[260px]'):
             with ui.link(target='https://www.bilibili.com/video/BV1kdeuzvE2j', new_tab=True):

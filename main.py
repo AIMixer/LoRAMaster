@@ -11,6 +11,9 @@ import  sys,os
 sys.path.append(os.path.join(os.path.dirname(__file__), 'musubi-tuner'))
 import subprocess
 import atexit
+from dataset_manager import AutoCaptioning
+from dataset_manager import image_convert
+from dataset_manager import image_rename
 
 # 启动 tensorboard（后台运行）
 tensorboard_process = subprocess.Popen([
@@ -76,6 +79,21 @@ def settings_page():
         ).style('width:100%;height:100vh;')
     with_layout(content)
 
+@ui.page('/AutoCaptioning')
+def auto_captioning_page():
+    def content():
+        AutoCaptioning.draw_ui()
+    with_layout(content)
+@ui.page('/ImageConvert')
+def ImageConvert():
+    def content():
+        image_convert.draw_ui()
+    with_layout(content)
+@ui.page('/ImageRename')
+def ImageRename():
+    def content():
+        image_rename.draw_ui()
+    with_layout(content)
 # --------------------------
 # 启动默认首页
 # --------------------------

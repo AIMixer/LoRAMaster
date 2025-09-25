@@ -134,3 +134,7 @@ python main.py
 - B站主页：[AI搅拌手](https://space.bilibili.com/1997403556)
 - QQ交流群：551482703
 - 作者QQ：3697688140
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=AIMixer/LoRAMaster&type=Date)](https://www.star-history.com/#AIMixer/LoRAMaster&Date)
