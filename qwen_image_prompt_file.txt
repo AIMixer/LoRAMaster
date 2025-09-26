@@ -1,2 +1,2 @@
 # prompt 1: for generating a cat video
-jblfg, masterpiece, best quality, 1girl, in white shirts, full body, looking at viewer, simple background, blue sky --w 512 --h 512 --d 666666 --s 10 --ci E:\train\tiquhuawen\controls\1.png
+Extract the fabric print. Delete folds, buttons, seams, and shadows.print smooth spread across the entire canvas. --w 512 --h 512 --d 666666 --s 10 --ci E:\train\tiquhuawen\controls\1.png

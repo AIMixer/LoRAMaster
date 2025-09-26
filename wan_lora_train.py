@@ -380,7 +380,6 @@ def run_wan_training():
         "--seed","42",
         "--log_with",log_type,
         "--lr_scheduler", lr_scheduler,
-        "--lr_warmup_steps", str(lr_warmup_steps)
     ]
     if attention_implementation == 'sdpa':
         command.extend(['--sdpa'])
@@ -396,6 +395,8 @@ def run_wan_training():
         command.extend(["--clip", clip_model_path.strip()])
     if fp8:
         command.extend(['--fp8_base'])
+    if lr_scheduler == 'constant_with_warmup':
+        command.extend(["--lr_warmup_steps", str(lr_warmup_steps)])
 
     if generate_samples:
         prompt_file_final = make_prompt_file(

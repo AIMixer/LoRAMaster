@@ -224,7 +224,6 @@ def run_wan_training():
         "--log_with",log_type,
         "--model_prediction_type","raw",
         "--lr_scheduler",lr_scheduler,
-        "--lr_warmup_steps",str(lr_warmup_steps),
 
     ]
     if cache_to_disk:
@@ -262,6 +261,8 @@ def run_wan_training():
         command.extend(['--lr_scheduler_num_cycles', str(lr_scheduler_num_cycles)])
     if custom_params:
         command.extend([custom_params])
+    if lr_scheduler == 'constant_with_warmup':
+        command.extend(["--lr_warmup_steps", str(lr_warmup_steps)])
 
     def run_and_stream_output():
         global train_process

@@ -1,4 +1,4 @@
-dataset_path = "E:\\train\\loramastertest\\test"
+dataset_path = "E:\\train\\tiquhuawen2\\target"
 target_suffix = "jpg"
 target_prefix = ""
-target_num = "6"
+target_num = "4"

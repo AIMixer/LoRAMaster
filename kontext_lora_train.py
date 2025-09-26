@@ -354,7 +354,6 @@ def run_wan_training():
         "--seed","42",
         "--log_with",log_type,
         "--lr_scheduler", lr_scheduler,
-        "--lr_warmup_steps", str(lr_warmup_steps)
     ]
     if attention_implementation == 'sdpa':
         command.extend(['--sdpa'])
@@ -396,7 +395,8 @@ def run_wan_training():
         command.extend(['--lr_scheduler_num_cycles', str(lr_scheduler_num_cycles)])
     if custom_params:
         command.extend([custom_params])
-
+    if lr_scheduler == 'constant_with_warmup':
+        command.extend(["--lr_warmup_steps", str(lr_warmup_steps)])
     def run_and_stream_output():
         global train_process
         train_process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True,env=env,encoding='utf-8',errors='ignore')
