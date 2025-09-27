@@ -305,8 +305,8 @@ def run_wan_training():
     offload_inactive_dit = qwen_image_training_settings['offload_inactive_dit']
     mixed_precision = qwen_image_training_settings['mixed_precision']
     sample_at_first = qwen_image_training_settings['sample_at_first']
-
-
+    network_weights_path = qwen_image_training_settings['network_weights_path']
+    use_network_weights = qwen_image_training_settings['use_network_weights']
 
     python_executable = sys.executable
     # 获取当前脚本所在目录
@@ -368,6 +368,8 @@ def run_wan_training():
         command.extend(['--offload_inactive_dit'])
     if enable_low_vram:
         command.extend(["--blocks_to_swap", str(blocks_to_swap)])
+    if use_network_weights and network_weights_path.strip():
+        command.extend(["--network_weights", network_weights_path.strip()])
 
     if fp8:
         command.extend(['--fp8_base'])
@@ -703,7 +705,25 @@ def draw_ui():
                         num_processes = ui.number(value=qwen_image_training_settings['num_processes']).props(
                             'rounded outlined dense').classes('w-1/2')
                         bind_setting(num_processes, 'num_processes')
+                with ui.item():
+                    with ui.item_section():
+                        ui.item_label('Continue Training From Existing Weights / 从已有权重继续训练')
+                        ui.item_label('开启后，需要填入权重文件路径').props('caption')
+                    with ui.item_section().props('side').classes('w-1/2'):
+                        use_network_weights = ui.switch(value=qwen_image_training_settings['use_network_weights']).props(
+                            'outlined')
+                        bind_setting(use_network_weights, 'use_network_weights')
 
+                with ui.item().bind_visibility_from(use_network_weights, 'value'):
+                    # 权重接续训练
+                    with ui.item_section():
+                        ui.item_label('Weights File Path / 权重文件路径')
+                        ui.item_label('开启后，需要填入权重文件路径').props('caption')
+                    with ui.item_section().props('side').classes('w-1/2'):
+                        network_weights_path = ui.input(placeholder='Input weights file path / 请输入权重文件路径',
+                                                        value=qwen_image_training_settings['network_weights_path']).props(
+                            'rounded outlined dense').classes('w-1/2')
+                        bind_setting(network_weights_path, 'network_weights_path')
                 ui.separator()
                 ui.label('过程采样：').classes('font-bold mb-2').style(
                     'margin-left:10px;margin-top:10px')
