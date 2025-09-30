@@ -1,0 +1,19 @@
+# resolution, caption_extension, batch_size, enable_bucket, bucket_no_upscale must be set in either general or datasets
+
+# general configurations
+[general]
+resolution = [1024, 1024]
+caption_extension = ".txt"
+batch_size = 1
+enable_bucket = true
+bucket_no_upscale = false
+num_repeats = 2
+
+[[datasets]]
+flux_kontext_no_resize_control = true
+image_directory = "E:\\train\\qwen_edit_plus\\images"
+control_directory = "E:\\train\\qwen_edit_plus\\controls"
+cache_directory = "E:\\train\\qwen_edit_plus\\qwen_image_edit_plus_cache" 
+
+
+# other datasets can be added here. each dataset can have different configurations
