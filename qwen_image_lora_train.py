@@ -117,6 +117,7 @@ def start_pre_caching():
     fp8 = qwen_image_training_settings['fp8']
     batch_size = qwen_image_training_settings['batch_size']
     edit = qwen_image_training_settings['edit']
+    train_type = qwen_image_training_settings['train_type']
 
     python_executable = sys.executable
     # 获取当前脚本所在目录
@@ -151,8 +152,12 @@ def start_pre_caching():
     ]
     if fp8:
         cache_text_encoder_cmd.append('--fp8_vl')
-    if edit:
-        cache_text_encoder_cmd.append('--edit')
+    if train_type == 'qwen_image_edit':
+        cache_latents_cmd.extend(['--edit'])
+        cache_text_encoder_cmd.extend(['--edit'])
+    elif train_type == 'qwen_image_edit_plus':
+        cache_latents_cmd.extend(['--edit_plus'])
+        cache_text_encoder_cmd.extend(['--edit_plus'])
 
     # 异步执行训练
     def run_cache():
@@ -267,6 +272,7 @@ def run_wan_training():
     vae_path = qwen_image_training_settings['vae_path']
     text_encoder_model_path = qwen_image_training_settings['text_encoder_model_path']
     edit = qwen_image_training_settings['edit']
+    train_type = qwen_image_training_settings['train_type']
 
     learning_rate = qwen_image_training_settings['learning_rate']
     gradient_accumulation_steps = qwen_image_training_settings['gradient_accumulation_steps']
@@ -373,8 +379,10 @@ def run_wan_training():
 
     if fp8:
         command.extend(['--fp8_base'])
-    if edit:
+    if train_type == 'qwen_image_edit':
         command.extend(['--edit'])
+    elif train_type == 'qwen_image_edit_plus':
+        command.extend(['--edit_plus'])
 
     if generate_samples:
         prompt_file_final = make_prompt_file(
@@ -461,11 +469,15 @@ def draw_ui():
                 ui.separator()
                 with ui.item():
                     with ui.item_section():
-                        ui.item_label('Qwen_Image Edit / 训练千问Edit')
+                        ui.item_label('Qwen_Image Type / 训练类型')
                         ui.item_label('打开后，训练qwen_image_edit，需要填写qwen_image_edit_bf16.safetensors').props('caption')
                     with ui.item_section().props('side').classes('w-1/2'):
-                        enable_low_vram = ui.switch(value=qwen_image_training_settings['edit']).props('outlined')
-                        bind_setting(enable_low_vram, 'edit')
+                        # enable_low_vram = ui.switch(value=qwen_image_training_settings['edit']).props('outlined')
+                        # bind_setting(enable_low_vram, 'edit')
+                        train_type = ui.select(
+                            ['qwen_image', 'qwen_image_edit', 'qwen_image_edit_plus'],
+                            value=qwen_image_training_settings['train_type']).props('rounded outlined dense').classes('w-full')
+                        bind_setting(train_type, 'train_type')
                 with ui.item():
                     with ui.item_section():
                         ui.item_label('DiT Weights Path / DiT权重文件路径')
