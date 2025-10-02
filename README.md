@@ -17,15 +17,16 @@ LoRAMaster 是一个开源的 **LoRA 训练工具**，支持最新的前沿模�
 
 ## ✅ 支持情况
 
-| 模型 / 模式           | 状态       |
-|-------------------|------------|
-| Wan 2.1 (T2V、I2V) | ✅ 支持     |
-| Wan 2.2 (T2V、I2V) | ✅ 支持     |
-| Kontext           | ✅ 支持     |
-| Qwen-Image        | ✅ 支持      |
-| Qwen-Image Edit   | ✅ 支持      |
-| HunyuanVideo      | ✅ 支持     |
-| Flux              | ✅ 支持     |
+| 模型 / 模式                    | 状态       |
+|----------------------------|------------|
+| Wan 2.1 (T2V、I2V)          | ✅ 支持     |
+| Wan 2.2 (T2V、I2V)          | ✅ 支持     |
+| Kontext                    | ✅ 支持     |
+| Qwen-Image                 | ✅ 支持      |
+| Qwen-Image Edit            | ✅ 支持      |
+| Qwen-Image Edit Plus（2509） | ✅ 支持      |
+| HunyuanVideo               | ✅ 支持     |
+| Flux                       | ✅ 支持     |
 
 
 ## 视频教程
@@ -46,6 +47,7 @@ LoRAMaster 是一个开源的 **LoRA 训练工具**，支持最新的前沿模�
 2. [Wan2.1 图生视频LoRA训练教程（以视频特效为例）](https://www.bilibili.com/video/BV1tHatz9Ej7)
 3. [Wan2.2 文生视频LoRA训练教程（以人物角色为例）](https://www.bilibili.com/video/BV1dCaqz8EpN)
 4. [Wan2.2 图生视频LoRA训练教程（以视频特效为例）](https://www.bilibili.com/video/BV163aizYEWb)
+5. [Wan2.2人物角色一致性LoRA保姆式训练教程，小白可做！）](https://www.bilibili.com/video/BV1HLn1zaEJ5)
 5. [Kontext LoRA训练教程（以提取花纹LoRA为例）](https://www.bilibili.com/video/BV1HhaqzzEdR)
 6. [Qwen Image训练教程（以人物角色LoRA为例）](https://www.bilibili.com/video/BV1f8YTzDEtf)
 7. [Qwen Image Edit训练教程（以提取花纹LoRA为例）](https://www.bilibili.com/video/BV1AnYTzZEUG)
