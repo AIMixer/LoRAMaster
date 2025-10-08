@@ -39,9 +39,11 @@ LoRAMaster 是一个开源的 **LoRA 训练工具**，支持最新的前沿模�
 6. [Kontext LoRA训练教程（以提取花纹LoRA为例）](https://www.bilibili.com/video/BV1Pve9zZENV)
 7. [Qwen Image训练教程（以人物角色LoRA为例）](https://www.bilibili.com/video/BV1sPhXzJEJx)
 8. [Qwen Image Edit训练教程（以提取花纹LoRA为例）](https://www.bilibili.com/video/BV1mKhezNEPz)
-9. [Flux 训练教程（以人物角色LoRA为例）](https://www.bilibili.com/video/BV1utHezUEB9)
-10. [Flux 风格LoRA训练教程](https://www.bilibili.com/video/BV1D1pTz5EXG)
-11. 持续更新中...
+9. [Qwen Image Edit Plus(2509)训练教程（以提取花纹LoRA为例）](https://www.bilibili.com/video/BV1aZn2zQEV3)
+10. [Flux 训练教程（以人物角色LoRA为例）](https://www.bilibili.com/video/BV1utHezUEB9)
+11. [Flux 风格LoRA训练教程](https://www.bilibili.com/video/BV1D1pTz5EXG)
+12. 持续更新中...
+
 ### 云端训练教程（仙宫云）
 1. [Wan2.1 文生视频LoRA训练教程（以人物角色为例）](https://www.bilibili.com/video/BV16WagzbEog)
 2. [Wan2.1 图生视频LoRA训练教程（以视频特效为例）](https://www.bilibili.com/video/BV1tHatz9Ej7)
@@ -51,9 +53,10 @@ LoRAMaster 是一个开源的 **LoRA 训练工具**，支持最新的前沿模�
 5. [Kontext LoRA训练教程（以提取花纹LoRA为例）](https://www.bilibili.com/video/BV1HhaqzzEdR)
 6. [Qwen Image训练教程（以人物角色LoRA为例）](https://www.bilibili.com/video/BV1f8YTzDEtf)
 7. [Qwen Image Edit训练教程（以提取花纹LoRA为例）](https://www.bilibili.com/video/BV1AnYTzZEUG)
-8. [Flux 训练教程（以人物角色LoRA为例）](https://www.bilibili.com/video/BV16THezwEwc)
-9. [Flux 风格LoRA训练教程](https://www.bilibili.com/video/BV1jqpCz4Eoc)
-10. 持续更新中...
+8. [Qwen Image Edit Plus(2509)训练教程（以提取花纹LoRA为例）](https://www.bilibili.com/video/BV1c1HVz1ESs)
+9. [Flux 训练教程（以人物角色LoRA为例）](https://www.bilibili.com/video/BV16THezwEwc)
+10. [Flux 风格LoRA训练教程](https://www.bilibili.com/video/BV1jqpCz4Eoc)
+11. 持续更新中...
 
 ## 💻 本地安装与运行
 
@@ -104,13 +107,13 @@ python main.py
 
 ## 📥 模型下载
 
-| 模型名                      | 用途              | 下载链接 |
-|--------------------------|-----------------|----------|
-| Wan2.1 diffusion_models  | DiT权重文件路径（按需下載） | [下载](https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/tree/main/split_files/diffusion_models) |
-| Wan2.2 diffusion_models             | DiT权重文件路径（按需下載） | [下载](https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/tree/main/split_files/diffusion_models) |
-| Wan2.1 vae               | Wan VAE文件路径     | [下载](https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/tree/main/split_files/vae) |
-| Wan2.1 T5                | T5模型路径          | [下载](https://huggingface.co/Wan-AI/Wan2.1-T2V-14B/blob/main/models_t5_umt5-xxl-enc-bf16.pth) |
-| CLIP Model                | Clip模型          | [下载](https://www.modelscope.cn/models/muse/open-clip-xlm-roberta-large-vit-huge-14/files) |
+| 模型名                     | 用途              | 下载链接 |
+|-------------------------|-----------------|----------|
+| Wan2.1 diffusion_models | DiT权重文件路径（按需下載） | [下载](https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/tree/main/split_files/diffusion_models) |
+| Wan2.2 diffusion_models | DiT权重文件路径（按需下載） | [下载](https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/tree/main/split_files/diffusion_models) |
+| Wan2.1 vae              | Wan VAE文件路径     | [下载](https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/tree/main/split_files/vae) |
+| Wan2.1 T5               | T5模型路径          | [下载](https://huggingface.co/Wan-AI/Wan2.1-T2V-14B/blob/main/models_t5_umt5-xxl-enc-bf16.pth) |
+| Wan CLIP Model          | Clip模型          | [下载](https://www.modelscope.cn/models/muse/open-clip-xlm-roberta-large-vit-huge-14/files) |
 
 
 ## ⚖️ 使用条款

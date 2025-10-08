@@ -1,12 +1,12 @@
-dataset_path = "E:\\train\\tiquhuawen2\\target"
+dataset_path = "E:\\train\\fenggelora\\frxxz_v1\\frxxz_fengjing"
 caption_type = "Descriptive"
-caption_length = "medium-length"
+caption_length = "long"
 temperature = "0.6"
 top_p = "0.9"
 top_k = "0"
 max_new_tokens = 741
-trigger_word = "Extract the fabric print. Delete folds, buttons, seams, and shadows.print smooth spread across the entire canvas."
-filter_word = "anime style,"
+trigger_word = "This is a frxxz_style picture, "
+filter_word = ""
 refer_character_name = false
 exclude_people_info = false
 include_lighting = false
