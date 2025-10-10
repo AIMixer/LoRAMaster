@@ -40,9 +40,10 @@ LoRAMaster 是一个开源的 **LoRA 训练工具**，支持最新的前沿模�
 7. [Qwen Image训练教程（以人物角色LoRA为例）](https://www.bilibili.com/video/BV1sPhXzJEJx)
 8. [Qwen Image Edit训练教程（以提取花纹LoRA为例）](https://www.bilibili.com/video/BV1mKhezNEPz)
 9. [Qwen Image Edit Plus(2509)训练教程（以提取花纹LoRA为例）](https://www.bilibili.com/video/BV1aZn2zQEV3)
-10. [Flux 训练教程（以人物角色LoRA为例）](https://www.bilibili.com/video/BV1utHezUEB9)
-11. [Flux 风格LoRA训练教程](https://www.bilibili.com/video/BV1D1pTz5EXG)
-12. 持续更新中...
+10. [Qwen Image Edit Plus(2509)多图融合LoRA训练教程](https://www.bilibili.com/video/BV1c1HVz1ESs)
+11. [Flux 训练教程（以人物角色LoRA为例）](https://www.bilibili.com/video/BV1utHezUEB9)
+12. [Flux 风格LoRA训练教程](https://www.bilibili.com/video/BV1D1pTz5EXG)
+13. 持续更新中...
 
 ### 云端训练教程（仙宫云）
 1. [Wan2.1 文生视频LoRA训练教程（以人物角色为例）](https://www.bilibili.com/video/BV16WagzbEog)
@@ -54,9 +55,10 @@ LoRAMaster 是一个开源的 **LoRA 训练工具**，支持最新的前沿模�
 6. [Qwen Image训练教程（以人物角色LoRA为例）](https://www.bilibili.com/video/BV1f8YTzDEtf)
 7. [Qwen Image Edit训练教程（以提取花纹LoRA为例）](https://www.bilibili.com/video/BV1AnYTzZEUG)
 8. [Qwen Image Edit Plus(2509)训练教程（以提取花纹LoRA为例）](https://www.bilibili.com/video/BV1c1HVz1ESs)
-9. [Flux 训练教程（以人物角色LoRA为例）](https://www.bilibili.com/video/BV16THezwEwc)
-10. [Flux 风格LoRA训练教程](https://www.bilibili.com/video/BV1jqpCz4Eoc)
-11. 持续更新中...
+9. [Qwen Image Edit Plus(2509)多图融合LoRA训练教程](https://www.bilibili.com/video/BV1c1HVz1ESs)
+10. [Flux 训练教程（以人物角色LoRA为例）](https://www.bilibili.com/video/BV16THezwEwc)
+11. [Flux 风格LoRA训练教程](https://www.bilibili.com/video/BV1jqpCz4Eoc)
+12. 持续更新中...
 
 ## 💻 本地安装与运行
 
