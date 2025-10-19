@@ -60,6 +60,10 @@ LoRAMaster 是一个开源的 **LoRA 训练工具**，支持最新的前沿模�
 11. [Flux 风格LoRA训练教程](https://www.bilibili.com/video/BV1jqpCz4Eoc)
 12. 持续更新中...
 
+### 技术交流
+LoRA训练交流QQ群：559826331
+ComfyUI技术交流群：551482703
+
 ## 💻 本地安装与运行
 
 ### 方式一：本地一键整合包

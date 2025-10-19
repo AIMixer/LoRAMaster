@@ -77,7 +77,7 @@ def with_layout(content_func):
                 caption_button.style('text-decoration: none;')
 
 
-            ui.label('QQ交流群：551482703')
+            ui.label('QQ交流群：559826331')
             ui.html("""
                 <a href="https://space.bilibili.com/1997403556" target="_blank">联系作者：AI搅拌手</a>
                 <a href="https://github.com/AIMixer/LoRAMaster" target="_blank">Github</a>

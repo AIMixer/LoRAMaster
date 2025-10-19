@@ -38,7 +38,7 @@ def draw_ui():
                 <li><a href="https://loramaster.com" target="_blank" style="text-decoration: underline;">Lora训练大师官网：https://loramaster.com</a></li><br />
                 <li><a href="https://comfyit.cn" target="_blank" style="text-decoration: underline;">ComfyUI搅拌站：https://comfyit.cn</a></li><br />
                 <li><a href="https://comfyit.cn/article/286" target="_blank" style="text-decoration: underline;">ComfyUI管理大师：https://comfyit.cn/article/286</a></li><br />
-                <li>ComfyUI技术交流群：551482703</li>
+                <li>LoRA训练交流群：559826331；ComfyUI技术交流群：551482703</li>
             </ul>
         """)
 
