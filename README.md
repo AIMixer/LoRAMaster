@@ -46,24 +46,36 @@ LoRAMaster 是一个开源的 **LoRA 训练工具**，支持最新的前沿模�
 13. 持续更新中...
 
 ### 云端训练教程（仙宫云）
-1. [Wan2.1 文生视频LoRA训练教程（以人物角色为例）](https://www.bilibili.com/video/BV16WagzbEog)
-2. [Wan2.1 图生视频LoRA训练教程（以视频特效为例）](https://www.bilibili.com/video/BV1tHatz9Ej7)
-3. [Wan2.2 文生视频LoRA训练教程（以人物角色为例）](https://www.bilibili.com/video/BV1dCaqz8EpN)
-4. [Wan2.2 图生视频LoRA训练教程（以视频特效为例）](https://www.bilibili.com/video/BV163aizYEWb)
-5. [Wan2.2人物角色一致性LoRA保姆式训练教程，小白可做！）](https://www.bilibili.com/video/BV1HLn1zaEJ5)
-5. [Kontext LoRA训练教程（以提取花纹LoRA为例）](https://www.bilibili.com/video/BV1HhaqzzEdR)
-6. [Qwen Image训练教程（以人物角色LoRA为例）](https://www.bilibili.com/video/BV1f8YTzDEtf)
-7. [Qwen Image Edit训练教程（以提取花纹LoRA为例）](https://www.bilibili.com/video/BV1AnYTzZEUG)
-8. [Qwen Image Edit Plus(2509)训练教程（以提取花纹LoRA为例）](https://www.bilibili.com/video/BV1c1HVz1ESs)
-9. [Qwen Image Edit Plus(2509)多图融合LoRA训练教程](https://www.bilibili.com/video/BV1c1HVz1ESs)
-10. [Flux 训练教程（以人物角色LoRA为例）](https://www.bilibili.com/video/BV16THezwEwc)
-11. [Flux 风格LoRA训练教程](https://www.bilibili.com/video/BV1jqpCz4Eoc)
+1. [Qwen Image Edit Plus 2509多图融合LoRA训练保姆式教程](https://www.bilibili.com/video/BV1Yv4XzWEdN)
+2. [Qwen Image Edit Plus 2509提取花纹LoRA保姆级教程](https://www.bilibili.com/video/BV1ha4qzgE4R)
+3. [Qwen Image Edit图片编辑LORA训练保姆级教程](https://www.bilibili.com/video/BV1p7WezVEb1)
+4. [Qwen Image人物角色LoRA训练保姆级教程，生成人物海报和封面](https://www.bilibili.com/video/BV1WSWrzeEY6)
+5. [Wan2.2高低噪通用视频特效LoRA保姆级训练教程](https://www.bilibili.com/video/BV1gaWEz1EbF)
+6. [Kontext提取花纹LoRA保姆级训练教程](https://www.bilibili.com/video/BV1ersgzaEHM)
+7. [Wan2.2人物角色高低噪通用LoRA保姆级训练教程](https://www.bilibili.com/video/BV1sGWRzTE7b)
+8. [Wan2.1图生视频特效LoRA保姆级训练教程 ](https://www.bilibili.com/video/BV16Ps8zbELf)
+9. [Wan2.1人物角色LoRA保姆级训练教程](https://www.bilibili.com/video/BV1kYsqzQEuv)
+10. [Flux人物角色LoRA保姆级训练教程](https://www.bilibili.com/video/BV18AsJzJEds)
+11. [Flux风格LoRA保姆级训练教程](https://www.bilibili.com/video/BV1sJsHzjE5R)
 12. 持续更新中...
+
+### 云端训练教程（晨羽智云）
+1. [Qwen Image Edit Plus 2509多图融合LoRA训练保姆式教程](https://www.bilibili.com/video/BV1L84XzoE2f)
+2. [Qwen Image Edit Plus 2509提取花纹LoRA保姆级教程](https://www.bilibili.com/video/BV1Y44qzCE6V)
+3. [Qwen Image Edit图片编辑LORA训练保姆级教程](https://www.bilibili.com/video/BV1crWvz1EmV)
+4. [Qwen Image人物角色LoRA训练保姆级教程，生成人物海报和封面](https://www.bilibili.com/video/BV1ASWrzeEkY)
+5. [Wan2.2高低噪通用视频特效LoRA保姆级训练教程](https://www.bilibili.com/video/BV1haWEz2EG4)
+6. [Kontext提取花纹LoRA保姆级训练教程](https://www.bilibili.com/video/BV1CJsgz2ECh)
+7. [Wan2.2人物角色高低噪通用LoRA保姆级训练教程](https://www.bilibili.com/video/BV1PgWRzBEy5)
+8. [Wan2.1图生视频特效LoRA保姆级训练教程 ](https://www.bilibili.com/video/BV16Ps8zbEcj)
+9. [Wan2.1人物角色LoRA保姆级训练教程](https://www.bilibili.com/video/BV1rYsqzQEt6)
+10. [Flux人物角色LoRA保姆级训练教程](https://www.bilibili.com/video/BV1bTsJz2Et2)
+11. 持续更新中...
 
 ### 技术交流
 LoRA训练交流QQ群：559826331
 
-ComfyUI技术交流群：551482703
+ComfyUI技术交流群：425064221、551482703
 
 ## 💻 本地安装与运行
 
@@ -144,7 +156,7 @@ python main.py
 ## 🔑 授权方式
 如需 **商业合作、云端授权或定制功能**，请联系作者：  
 - B站主页：[AI搅拌手](https://space.bilibili.com/1997403556)
-- QQ交流群：551482703
+- QQ交流群：425064221、551482703
 - 作者QQ：3697688140
 
 ## Star History
