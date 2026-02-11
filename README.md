@@ -44,6 +44,32 @@ LoRAMaster 是一个开源的 **LoRA 训练工具**，支持最新的前沿模�
 
 
 ## 视频教程
+
+### 桌面版训练实例教程
+1. [LoRA训练实战1：Qwen Image Edit 2511极简训练法，保姆级教程！](https://www.bilibili.com/video/BV1cmvpBpE49)
+1. [LoRA训练实战2：Wan2.2炫酷特效LoRA极简训练法，保姆级教程！](https://www.bilibili.com/video/BV1a8vsBkEKD?vd_source=9e5a8a06c8985e49bafe8b819e08eaaf&spm_id_from=333.788.videopod.sections)
+1. [LoRA训练实战3：Wan2.1人物变火特效LoRA极简训练法，保姆级教程！](https://www.bilibili.com/video/BV1LBvYBuE7A?vd_source=9e5a8a06c8985e49bafe8b819e08eaaf&spm_id_from=333.788.videopod.sections)
+1. [LoRA训练实战4：Kontext提取花纹LoRA极简训练法，保姆级教程！](https://www.bilibili.com/video/BV1oLiKBAEtx?vd_source=9e5a8a06c8985e49bafe8b819e08eaaf&spm_id_from=333.788.videopod.sections)
+1. [LoRA训练实战5：Wan2.1人物角色LoRA极简训练法，保姆级教程！](https://www.bilibili.com/video/BV1agiuBPEnq?vd_source=9e5a8a06c8985e49bafe8b819e08eaaf&spm_id_from=333.788.videopod.sections)
+1. [LoRA训练实战6：Qwen Image人物角色LoRA极简训练法，保姆级教程！](https://www.bilibili.com/video/BV15riTBNEUb?vd_source=9e5a8a06c8985e49bafe8b819e08eaaf&spm_id_from=333.788.videopod.sections)
+1. [LoRA训练实战7：Flux吉卜力风格LoRA极简训练法，保姆级教程！](https://www.bilibili.com/video/BV1c6isBfEnM?vd_source=9e5a8a06c8985e49bafe8b819e08eaaf&spm_id_from=333.788.videopod.sections)
+1. [LoRA训练实战8：Flux人物角色LoRA极简训练法，保姆级教程！](https://www.bilibili.com/video/BV1UuitB2E5G?vd_source=9e5a8a06c8985e49bafe8b819e08eaaf&spm_id_from=333.788.videopod.sections)
+1. [LoRA训练实战9：Wan2.2人物角色LoRA极简训练法，保姆级教程！](https://www.bilibili.com/video/BV1jjqABfEiu?vd_source=9e5a8a06c8985e49bafe8b819e08eaaf&spm_id_from=333.788.videopod.sections)
+1. [LoRA训练实战10：Wan2.2人物变火特效LoRA极简训练法，保姆级教程！](https://www.bilibili.com/video/BV1swqABgEQM?vd_source=9e5a8a06c8985e49bafe8b819e08eaaf&spm_id_from=333.788.videopod.sections)
+1. [LoRA训练实战11：ZImage人物角色LoRA极简训练法，保姆级教程！](https://www.bilibili.com/video/BV1s4iCBnEsH?vd_source=9e5a8a06c8985e49bafe8b819e08eaaf&spm_id_from=333.788.videopod.sections)
+1. [LoRA训练实战12：ZImage风格LoRA极简训练法，保姆级教程！](https://www.bilibili.com/video/BV1GKiXBdEmH?vd_source=9e5a8a06c8985e49bafe8b819e08eaaf&spm_id_from=333.788.videopod.sections)
+1. [LoRA训练实战13：Qwen Image Edit 2509提取花纹LoRA极简训练法，保姆级教程！](https://www.bilibili.com/video/BV1asiQB9EmD?vd_source=9e5a8a06c8985e49bafe8b819e08eaaf&spm_id_from=333.788.videopod.sections)
+1. [LoRA训练实战14：SDXL人物角色LoRA极简训练法，保姆级教程！](https://www.bilibili.com/video/BV11WrhBaELa?vd_source=9e5a8a06c8985e49bafe8b819e08eaaf&spm_id_from=333.788.videopod.sections)
+1. [LoRA训练实战15：SDXL吉卜力风格LoRA极简训练法，保姆级教程！](https://www.bilibili.com/video/BV1vRrqBvE2L?vd_source=9e5a8a06c8985e49bafe8b819e08eaaf&spm_id_from=333.788.videopod.sections)
+1. [LoRA训练实战16：QwenImage2512人物角色LoRA极简训练法，保姆级教程！](https://www.bilibili.com/video/BV1vmrgBxEoB?vd_source=9e5a8a06c8985e49bafe8b819e08eaaf&spm_id_from=333.788.videopod.sections)
+1. [LoRA训练实战17：QwenImage2512吉卜力风格LoRA极简训练法，保姆级教程！](https://www.bilibili.com/video/BV1swr8BZE8t?vd_source=9e5a8a06c8985e49bafe8b819e08eaaf&spm_id_from=333.788.videopod.sections)
+1. [LoRA训练实战18：QwenImageEdit提取花纹LoRA极简训练法，保姆级教程！](https://www.bilibili.com/video/BV1TWrHBrExd?vd_source=9e5a8a06c8985e49bafe8b819e08eaaf&spm_id_from=333.788.videopod.sections)
+1. [LoRA训练实战19：QwenImageEdit2511多图参考LoRA极简训练法，保姆级教程！](https://www.bilibili.com/video/BV1jPrHBsEiu?vd_source=9e5a8a06c8985e49bafe8b819e08eaaf&spm_id_from=333.788.videopod.sections)
+1. [LoRA训练实战20：QwenImageEdit2509多图参考LoRA极简训练法，保姆级教程！](https://www.bilibili.com/video/BV1EwkTBWEJN?vd_source=9e5a8a06c8985e49bafe8b819e08eaaf&spm_id_from=333.788.videopod.sections)
+1. [LoRA训练实战21：Wan2.1图生视频LoRA极简训练法，保姆级教程！](https://www.bilibili.com/video/BV1ZwkTBpEkU?vd_source=9e5a8a06c8985e49bafe8b819e08eaaf&spm_id_from=333.788.videopod.sections)
+1. [LoRA训练实战23：Flux2 Klein Base人物角色极简训练法，保姆级教程！](https://www.bilibili.com/video/BV1jWzhB1E2V/?vd_source=9e5a8a06c8985e49bafe8b819e08eaaf)
+1. 更多训练示例，正在努力更新中...
+2. 
 ### 本地训练教程
 1. [LoRA训练大师简介与安装方法](https://www.bilibili.com/video/BV1kdeuzvE2j/)
 2. [Wan2.1 文生视频LoRA训练教程（以人物角色为例）](https://www.bilibili.com/video/BV19BYUz4EHz)
