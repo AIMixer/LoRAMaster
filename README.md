@@ -17,16 +17,30 @@ LoRAMaster 是一个开源的 **LoRA 训练工具**，支持最新的前沿模�
 
 ## ✅ 支持情况
 
-| 模型 / 模式                    | 状态       |
-|----------------------------|------------|
-| Wan 2.1 (T2V、I2V)          | ✅ 支持     |
-| Wan 2.2 (T2V、I2V)          | ✅ 支持     |
-| Kontext                    | ✅ 支持     |
-| Qwen-Image                 | ✅ 支持      |
-| Qwen-Image Edit            | ✅ 支持      |
-| Qwen-Image Edit Plus（2509） | ✅ 支持      |
-| HunyuanVideo               | ✅ 支持     |
-| Flux                       | ✅ 支持     |
+| 模型 / 模式                    | 开源版  | 桌面版  | 
+|----------------------------|------|------|
+| Wan 2.1 (T2V、I2V)          | ✅ 支持 |✅ 支持 |
+| Wan 2.2 (T2V、I2V)          | ✅ 支持 |✅ 支持 |
+| Qwen-Image                 | ✅ 支持 |✅ 支持 |
+| Qwen-Image2512             | ✅ 支持 |✅ 支持 |
+| Qwen-Image Edit            | ✅ 支持 |✅ 支持 |
+| Qwen-Image Edit Plus（2509） | ✅ 支持 |✅ 支持 |
+| Qwen-Image Edit Plus（2511） | ✅ 支持 |✅ 支持 |
+| HunyuanVideo               | ✅ 支持 |✅ 支持 |
+| Flux.1 Dev                 | ✅ 支持 |✅ 支持 |
+| Flux.1 Kontext             | ✅ 支持 |✅ 支持 |
+| Flux.2 Dev                 | 暂不支持 |✅ 支持 |
+| Flux.2 Klein Base 9B       | 暂不支持 |✅ 支持 |
+| Flux.2 Klein Base 4B       | 暂不支持 |✅ 支持 |
+| Flux.2 Klein 9B            | 暂不支持 |✅ 支持 |
+| Flux.2 Klein 4B            | 暂不支持 |✅ 支持 |
+| SDXL                       | 暂不支持 |✅ 支持 |
+| ZImage                     | 暂不支持 |✅ 支持 |
+
+
+[LoRA训练大师桌面版下载](https://loramaster.com/)
+
+[LoRA训练大师桌面版训练合集](https://comfyit.cn/blog/204)
 
 
 ## 视频教程

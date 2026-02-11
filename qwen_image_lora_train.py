@@ -153,11 +153,14 @@ def start_pre_caching():
     if fp8:
         cache_text_encoder_cmd.append('--fp8_vl')
     if train_type == 'qwen_image_edit':
-        cache_latents_cmd.extend(['--edit'])
-        cache_text_encoder_cmd.extend(['--edit'])
-    elif train_type == 'qwen_image_edit_plus':
-        cache_latents_cmd.extend(['--edit_plus'])
-        cache_text_encoder_cmd.extend(['--edit_plus'])
+        cache_latents_cmd.extend(['--model_version','edit'])
+        cache_text_encoder_cmd.extend(['--model_version','edit'])
+    elif train_type == 'qwen_image_edit_2509':
+        cache_latents_cmd.extend(['--model_version','edit-2509'])
+        cache_text_encoder_cmd.extend(['--model_version','edit-2509'])
+    elif train_type == 'qwen_image_edit_2511':
+        cache_latents_cmd.extend(['--model_version','edit-2511'])
+        cache_text_encoder_cmd.extend(['--model_version','edit-2511'])
 
     # 异步执行训练
     def run_cache():
@@ -379,10 +382,13 @@ def run_wan_training():
 
     if fp8:
         command.extend(['--fp8_base'])
+
     if train_type == 'qwen_image_edit':
-        command.extend(['--edit'])
-    elif train_type == 'qwen_image_edit_plus':
-        command.extend(['--edit_plus'])
+        command.extend(['--model_version','edit'])
+    elif train_type == 'qwen_image_edit_2509':
+        command.extend(['--model_version','edit-2509'])
+    elif train_type == 'qwen_image_edit_2511':
+        command.extend(['--model_version','edit-2511'])
 
     if generate_samples:
         prompt_file_final = make_prompt_file(
@@ -475,7 +481,7 @@ def draw_ui():
                         # enable_low_vram = ui.switch(value=qwen_image_training_settings['edit']).props('outlined')
                         # bind_setting(enable_low_vram, 'edit')
                         train_type = ui.select(
-                            ['qwen_image', 'qwen_image_edit', 'qwen_image_edit_plus'],
+                            ['qwen_image','qwen_image_2512', 'qwen_image_edit', 'qwen_image_edit_2509', 'qwen_image_edit_2511'],
                             value=qwen_image_training_settings['train_type']).props('rounded outlined dense').classes('w-full')
                         bind_setting(train_type, 'train_type')
                 with ui.item():
